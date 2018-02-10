@@ -1,0 +1,7 @@
+We love snakes.
+Hints:
+
+    $ cat flag | md5sum
+
+    5a76c600c2ca0f179b643a4fcd4bc7ac
+

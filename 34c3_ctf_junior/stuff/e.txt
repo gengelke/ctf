@@ -1,0 +1,1 @@
+my solution to babybash: (A=$(/[^A][^A][^A]_[^A][^A][^A][^A]); /[^A][^A][^A]_[^A][^A][^A][^A] ${A:17})

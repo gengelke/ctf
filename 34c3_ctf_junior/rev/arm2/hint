@@ -1,0 +1,12 @@
+Can you reverse engineer this code and get the flag?
+
+This code is ARM Thumb 2 code which runs on an STM32F103CBT6. You should not need such a controller to solve this challenge.
+
+There are 5 stages in total which share all the same code base, so you are able to compare code from the first stage with all the other stages to see what code is actually relevant.
+
+If you should need a datasheet, you can get it here.
+
+In case you need to refresh your ARM assembly, check out Azeria's cool articles.
+
+Challenge binary
+

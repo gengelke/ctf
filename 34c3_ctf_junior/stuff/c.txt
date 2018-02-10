@@ -1,0 +1,2 @@
+[21:20:30]  <dag>	muvlon: ${OSTYPE:6:1}${HOSTNAME:2:1}${HOME:4:1}_${HOSTNAME:9:1}${PATH:5:1}${HOSTNAME:10:1}${OSTYPE:6:1} > BAR
+[21:20:36]  <slenderestman>	$'\005\333\23523\3\26\33\4\3\' $'\345\\53\46\6\344\'
