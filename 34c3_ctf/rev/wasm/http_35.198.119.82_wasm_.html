@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>http://35.198.119.82/wasm/</title><link rel="stylesheet" type="text/css" href="http_35.198.119.82_wasm__files/viewsource.css"></head><body id="viewsource" class="highlight" style="-moz-tab-size: 4" contextmenu="actions"><pre id="line1"><span></span><span class="error" title="Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”.">&lt;<span class="start-tag">html</span>&gt;</span><span>
+<span id="line2"></span>  </span><span>&lt;<span class="start-tag">head</span>&gt;</span><span>
+<span id="line3"></span>    </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">rel</span>="<a class="attribute-value">stylesheet</a>" <span class="attribute-name">href</span>="<a class="attribute-value" href="view-source:https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css</a>" <span class="attribute-name">integrity</span>="<a class="attribute-value">sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb</a>" <span class="attribute-name">crossorigin</span>="<a class="attribute-value">anonymous</a>"&gt;</span><span>
+<span id="line4"></span>  </span><span>&lt;/<span class="end-tag">head</span>&gt;</span><span>
+<span id="line5"></span>  </span><span>&lt;<span class="start-tag">body</span>&gt;</span><span>
+<span id="line6"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>="<a class="attribute-value" href="view-source:http://35.198.119.82/wasm/wasmblock.js">wasmblock.js</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line7"></span>  </span><span>&lt;<span class="start-tag">script</span>&gt;</span><span>
+<span id="line8"></span>    window.Module = {};
+<span id="line9"></span>    fetchAndInstantiate("./flag.wasm", {})
+<span id="line10"></span>    .then(mod =&gt; {
+<span id="line11"></span>      Module.check = mod.exports.check;
+<span id="line12"></span>      Module.alloc = mod.exports.alloc;
+<span id="line13"></span>      Module.dealloc_str = mod.exports.dealloc_str;
+<span id="line14"></span>      Module.memory = mod.exports.memory;
+<span id="line15"></span>    })
+<span id="line16"></span>
+<span id="line17"></span>    function check_flag() {
+<span id="line18"></span>      let flag = document.getElementById("flag").value;
+<span id="line19"></span>      let buf = newString(Module, flag);
+<span id="line20"></span>      let result = document.getElementById("result");
+<span id="line21"></span>      result.setAttribute("style", "");
+<span id="line22"></span>
+<span id="line23"></span>      if (Module.check(buf)) {
+<span id="line24"></span>        result.setAttribute("class", "alert alert-success");
+<span id="line25"></span>        result.innerText = "Good job :-)";
+<span id="line26"></span>      } else {
+<span id="line27"></span>        result.setAttribute("class", "alert alert-danger");
+<span id="line28"></span>        result.innerText = "Invalid flag :-(";
+<span id="line29"></span>      }
+<span id="line30"></span>    }
+<span id="line31"></span>  </span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line32"></span>
+<span id="line33"></span>  </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">container</a>" <span class="attribute-name">style</span>="<a class="attribute-value">margin-top: 200px;</a>"&gt;</span><span>
+<span id="line34"></span>    </span><span>&lt;<span class="start-tag">form</span> <span class="attribute-name">onsubmit</span>="<a class="attribute-value">check_flag(); return false;</a>"&gt;</span><span>
+<span id="line35"></span>    </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">form-group</a>"&gt;</span><span>
+<span id="line36"></span>      </span><span>&lt;<span class="start-tag">input</span> <span class="attribute-name">type</span>="<a class="attribute-value">text</a>" <span class="attribute-name">class</span>="<a class="attribute-value">form-control</a>" <span class="attribute-name">id</span>="<a class="attribute-value">flag</a>" <span class="attribute-name">placeholder</span>="<a class="attribute-value">Enter flag</a>"&gt;</span><span>
+<span id="line37"></span>    </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line38"></span>    </span><span>&lt;<span class="start-tag">button</span> <span class="attribute-name">type</span>="<a class="attribute-value">submit</a>" <span class="attribute-name">class</span>="<a class="attribute-value">btn btn-primary</a>"&gt;</span><span>Submit</span><span>&lt;/<span class="end-tag">button</span>&gt;</span><span>
+<span id="line39"></span>    </span><span>&lt;/<span class="end-tag">form</span>&gt;</span><span>
+<span id="line40"></span>    </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">result</a>" <span class="attribute-name">class</span>="<a class="attribute-value">alert</a>" <span class="attribute-name">role</span>="<a class="attribute-value">alert</a>" <span class="attribute-name">style</span>="<a class="attribute-value">display:none</a>"&gt;</span><span>
+<span id="line41"></span>    </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line42"></span>  </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line43"></span>
+<span id="line44"></span>  </span><span>&lt;/<span class="end-tag">body</span>&gt;</span><span>
+<span id="line45"></span></span><span>&lt;/<span class="end-tag">html</span>&gt;</span><span>
+<span id="line46"></span></span></pre><menu type="context" id="actions"><menuitem id="goToLine" label="Go to Line…" accesskey="L"></menuitem><menuitem id="wrapLongLines" label="Wrap Long Lines" type="checkbox"></menuitem><menuitem id="highlightSyntax" label="Syntax Highlighting" type="checkbox" checked="true"></menuitem></menu></body></html>

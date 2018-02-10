@@ -1,0 +1,10 @@
+
+
+    Pain is an event. It happens to you, and you deal with it in whatever way you can. ~ Hugh Laurie
+
+Connect: nc 104.199.25.43 1337
+
+Files: GET THEM HERE
+
+Environment: docker run -it tsuro/nsjail-ctf /bin/bash
+
