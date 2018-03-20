@@ -1,0 +1,1 @@
+You are into one of the forensics team of CIA. You have received a vm file to analyse. Find the password of this vm. 

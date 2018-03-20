@@ -1,0 +1,23 @@
+#Part 1: 011000010110001101110100011001100111101100110000011011100110010101011111011101000111011100110000010111110110011000110000
+#Part 2: 165 162 137 145 151 147 150 164 137 163 151 170 164 63 63
+#Part 3: 6e5f7468317274797477305f733178
+#Part 4: dHlmMHVyX25vX20wcmV9
+
+#Flag is the concatenation of the four decoded parts.
+
+import binascii
+import string
+import base64
+
+part1 = binascii.unhexlify('%x' % int('011000010110001101110100011001100111101100110000011011100110010101011111011101000111011100110000010111110110011000110000', 2) )
+
+part2_encoded = ['165', '162', '137', '145', '151', '147', '150', '164', '137', '163', '151', '170', '164', '63', '63' ]
+part2 = ""
+for value in part2_encoded:
+    part2 += str(unichr(int(value, 8)))
+
+part3 = binascii.unhexlify(b'6e5f7468317274797477305f733178')
+
+part4 = base64.b64decode(b'dHlmMHVyX25vX20wcmV9').decode('ascii')
+
+print( part1 + part2 + part3 + part4 )

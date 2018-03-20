@@ -1,0 +1,39 @@
+digraph code {
+	graph [bgcolor=azure fontsize=8 fontname="Courier" splines="ortho"];
+	node [fillcolor=gray style=filled shape=box];
+	edge [arrowhead="normal"];
+	"0x080484eb" -> "0x0804856b" [color="green"];
+	"0x080484eb" -> "0x0804854d" [color="red"];
+	"0x080484eb" [URL="main/0x080484eb", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="/ (fcn) main 340\l|   main ();\l| ; var int local_2ch @ ebp-0x2c\l| ; var int local_1ch @ ebp-0x1c\l| ; var int local_18h @ ebp-0x18\l| ; var int local_14h @ ebp-0x14\l| ; var int local_10h @ ebp-0x10\l| ; var int local_ch @ ebp-0xc\l| ; var int local_4h_2 @ ebp-0x4\l| ; var int local_4h @ esp+0x4\l| 0x080484eb      lea ecx, dword [local_4h]\l| 0x080484ef      and esp, 0xfffffff0\l| 0x080484f2      push dword [ecx - 4]\l| 0x080484f5      push ebp\l| 0x080484f6      mov ebp, esp\l| 0x080484f8      push ecx\l| 0x080484f9      sub esp, 0x34\l| 0x080484fc      mov eax, ecx\l| 0x080484fe      mov eax, dword [eax + 4]\l| 0x08048501      mov dword [local_2ch], eax\l| 0x08048504      mov eax, dword gs:[0x14]\l| 0x0804850a      mov dword [local_ch], eax\l| 0x0804850d      xor eax, eax\l| 0x0804850f      sub esp, 0xc\l| 0x08048512      push str.Welcome_to_Rev2__You_ll_probably_want_to_use_a_dissassembler_or_gdb.\l| 0x08048517      call sym.imp.puts\l| 0x0804851c      add esp, 0x10\l| 0x0804851f      sub esp, 0xc\l| 0x08048522      push str.Level_1:_What_number_am_I_thinking_of:\l| 0x08048527      call sym.imp.printf\l| 0x0804852c      add esp, 0x10\l| 0x0804852f      sub esp, 8\l| 0x08048532      lea eax, dword [local_1ch]\l| 0x08048535      push eax\l| 0x08048536      push 0x8048730\l| 0x0804853b      call sym.imp.__isoc99_scanf\l| 0x08048540      add esp, 0x10\l| 0x08048543      mov eax, dword [local_1ch]\l| 0x08048546      cmp eax, 0x11d7\l| 0x0804854b      je 0x804856b\l"]
+	"0x0804854d" -> "0x08048626" [color="blue"];
+	"0x0804854d" [URL="main/0x0804854d", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x0804854d      mov eax, dword [local_1ch]\l| 0x08048550      sub esp, 8\l| 0x08048553      push eax\l| 0x08048554      push str.Sorry__your_guess_of__d_was_incorrect._Try_again\l| 0x08048559      call sym.imp.printf\l| 0x0804855e      add esp, 0x10\l| 0x08048561      mov eax, 0\l| 0x08048566      jmp 0x8048626\l"]
+	"0x0804856b" -> "0x080485bd" [color="green"];
+	"0x0804856b" -> "0x0804859b" [color="red"];
+	"0x0804856b" [URL="main/0x0804856b", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x0804856b      sub esp, 0xc\l| 0x0804856e      push str.Level_2:_Which_two_two_digit_numbers_will_solve_this_level._Enter_the_two_numbers_separated_by_a_single_space__num1_should_be_the_lesser_of_the_two_:\l| 0x08048573      call sym.imp.printf\l| 0x08048578      add esp, 0x10\l| 0x0804857b      sub esp, 4\l| 0x0804857e      lea eax, dword [local_14h]\l| 0x08048581      push eax\l| 0x08048582      lea eax, dword [local_18h]\l| 0x08048585      push eax\l| 0x08048586      push str.d__d\l| 0x0804858b      call sym.imp.__isoc99_scanf\l| 0x08048590      add esp, 0x10\l| 0x08048593      mov eax, dword [local_18h]\l| 0x08048596      cmp eax, 0x63\l| 0x08048599      jg 0x80485bd\l"]
+	"0x0804859b" -> "0x080485bd" [color="green"];
+	"0x0804859b" -> "0x080485a3" [color="red"];
+	"0x0804859b" [URL="main/0x0804859b", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x0804859b      mov eax, dword [local_18h]\l| 0x0804859e      cmp eax, 9\l| 0x080485a1      jle 0x80485bd\l"]
+	"0x080485a3" -> "0x080485bd" [color="green"];
+	"0x080485a3" -> "0x080485ab" [color="red"];
+	"0x080485a3" [URL="main/0x080485a3", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x080485a3      mov eax, dword [local_14h]\l| 0x080485a6      cmp eax, 0x63\l| 0x080485a9      jg 0x80485bd\l"]
+	"0x080485ab" -> "0x080485bd" [color="green"];
+	"0x080485ab" -> "0x080485b3" [color="red"];
+	"0x080485ab" [URL="main/0x080485ab", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x080485ab      mov eax, dword [local_14h]\l| 0x080485ae      cmp eax, 9\l| 0x080485b1      jle 0x80485bd\l"]
+	"0x080485b3" -> "0x080485d4" [color="green"];
+	"0x080485b3" -> "0x080485bd" [color="red"];
+	"0x080485b3" [URL="main/0x080485b3", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x080485b3      mov edx, dword [local_18h]\l| 0x080485b6      mov eax, dword [local_14h]\l| 0x080485b9      cmp edx, eax\l| 0x080485bb      jle 0x80485d4\l"]
+	"0x080485bd" -> "0x08048626" [color="blue"];
+	"0x080485bd" [URL="main/0x080485bd", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x080485bd      sub esp, 0xc\l| 0x080485c0      push str.Numbers_do_not_meet_specifications._Try_again\l| 0x080485c5      call sym.imp.puts\l| 0x080485ca      add esp, 0x10\l| 0x080485cd      mov eax, 0\l| 0x080485d2      jmp 0x8048626\l"]
+	"0x080485d4" -> "0x08048608" [color="green"];
+	"0x080485d4" -> "0x080485e9" [color="red"];
+	"0x080485d4" [URL="main/0x080485d4", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x080485d4      mov edx, dword [local_18h]\l| 0x080485d7      mov eax, dword [local_14h]\l| 0x080485da      imul eax, edx\l| 0x080485dd      mov dword [local_10h], eax\l| 0x080485e0      cmp dword [local_10h], 0xd67\l| 0x080485e7      je 0x8048608\l"]
+	"0x080485e9" -> "0x08048626" [color="blue"];
+	"0x080485e9" [URL="main/0x080485e9", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x080485e9      mov edx, dword [local_14h]\l| 0x080485ec      mov eax, dword [local_18h]\l| 0x080485ef      sub esp, 4\l| 0x080485f2      push edx\l| 0x080485f3      push eax\l| 0x080485f4      push str.Sorry__your_guess_of__d_and__d_was_incorrect._Try_again\l| 0x080485f9      call sym.imp.printf\l| 0x080485fe      add esp, 0x10\l| 0x08048601      mov eax, 0\l| 0x08048606      jmp 0x8048626\l"]
+	"0x08048608" -> "0x08048626" [color="blue"];
+	"0x08048608" [URL="main/0x08048608", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x08048608      mov ecx, dword [local_14h]\l| 0x0804860b      mov edx, dword [local_18h]\l| 0x0804860e      mov eax, dword [local_1ch]\l| 0x08048611      push ecx\l| 0x08048612      push edx\l| 0x08048613      push eax\l| 0x08048614      push str.Congrats__you_passed_Rev2__The_flag_is:_actf__d__d__d\l| 0x08048619      call sym.imp.printf\l| 0x0804861e      add esp, 0x10\l| 0x08048621      mov eax, 0\l"]
+	"0x08048626" -> "0x08048637" [color="green"];
+	"0x08048626" -> "0x08048632" [color="red"];
+	"0x08048626" [URL="main/0x08048626", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x08048626      mov ecx, dword [local_ch]\l| 0x08048629      xor ecx, dword gs:[0x14]\l| 0x08048630      je 0x8048637\l"]
+	"0x08048632" [URL="main/0x08048632", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x08048632      call sym.imp.__stack_chk_fail\l"]
+	"0x08048637" [URL="main/0x08048637", fillcolor="palegreen",color="#7f7f7f", fontname="Courier",label="| 0x08048637      mov ecx, dword [local_4h_2]\l| 0x0804863a      leave\l| 0x0804863b      lea esp, dword [ecx - 4]\l\\ 0x0804863e      ret\l"]
+}

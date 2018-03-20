@@ -1,0 +1,7 @@
+Personal Letter
+binary, 160
+
+Have you ever gotten tired of writing your name in the header of a letter? Well now there's a program (source)to do it for you! Navigate to /problems/letter/ on the shell server to try your exploit out!
+
+HINT:
+It prints your name right in the letter!
