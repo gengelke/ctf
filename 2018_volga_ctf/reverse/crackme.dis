@@ -1,0 +1,1148 @@
+.assembly extern mscorlib
+{
+  .ver 4:0:0:0
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 ) // .z\V.4..
+}
+.assembly extern System
+{
+  .ver 4:0:0:0
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 ) // .z\V.4..
+}
+.assembly extern System.Core
+{
+  .ver 4:0:0:0
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 ) // .z\V.4..
+}
+.assembly 'CrackMe'
+{
+  .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::'.ctor'(int32) =  (01 00 08 00 00 00 00 00 ) // ........
+
+  .custom instance void class [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::'.ctor'() =  (
+		01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+		63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01       ) // ceptionThrows.
+
+  .custom instance void class [mscorlib]System.Diagnostics.DebuggableAttribute::'.ctor'(valuetype [mscorlib]System.Diagnostics.DebuggableAttribute/DebuggingModes) =  (01 00 02 00 00 00 00 00 ) // ........
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyTitleAttribute::'.ctor'(string) =  (01 00 07 43 72 61 63 6B 4D 65 00 00 ) // ...CrackMe..
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyDescriptionAttribute::'.ctor'(string) =  (01 00 00 00 00 ) // .....
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyConfigurationAttribute::'.ctor'(string) =  (01 00 00 00 00 ) // .....
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyCompanyAttribute::'.ctor'(string) =  (01 00 09 4D 69 63 72 6F 73 6F 66 74 00 00 ) // ...Microsoft..
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyProductAttribute::'.ctor'(string) =  (01 00 07 43 72 61 63 6B 4D 65 00 00 ) // ...CrackMe..
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyCopyrightAttribute::'.ctor'(string) =  (
+		01 00 1B 43 6F 70 79 72 69 67 68 74 20 C2 A9 20   // ...Copyright .. 
+		4D 69 63 72 6F 73 6F 66 74 20 32 30 31 38 00 00 ) // Microsoft 2018..
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyTrademarkAttribute::'.ctor'(string) =  (01 00 00 00 00 ) // .....
+
+  .custom instance void class [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::'.ctor'(bool) =  (01 00 00 00 00 ) // .....
+
+  .custom instance void class [mscorlib]System.Runtime.InteropServices.GuidAttribute::'.ctor'(string) =  (
+		01 00 24 33 32 36 61 64 34 65 34 2D 31 31 33 36   // ..$326ad4e4-1136
+		2D 34 35 30 30 2D 61 33 30 62 2D 36 61 37 63 62   // -4500-a30b-6a7cb
+		34 61 39 36 63 66 36 00 00                      ) // 4a96cf6..
+
+  .custom instance void class [mscorlib]System.Reflection.AssemblyFileVersionAttribute::'.ctor'(string) =  (01 00 07 31 2E 30 2E 30 2E 30 00 00 ) // ...1.0.0.0..
+
+  .custom instance void class [mscorlib]System.Runtime.Versioning.TargetFrameworkAttribute::'.ctor'(string) =  (
+		01 00 1A 2E 4E 45 54 46 72 61 6D 65 77 6F 72 6B   // ....NETFramework
+		2C 56 65 72 73 69 6F 6E 3D 76 34 2E 36 01 00 54   // ,Version=v4.6..T
+		0E 14 46 72 61 6D 65 77 6F 72 6B 44 69 73 70 6C   // ..FrameworkDispl
+		61 79 4E 61 6D 65 12 2E 4E 45 54 20 46 72 61 6D   // ayName..NET Fram
+		65 77 6F 72 6B 20 34 2E 36                      ) // ework 4.6
+
+  .hash algorithm 0x00008004
+  .ver  1:0:0:0
+}
+.module CrackMe.exe // GUID = {7588AF36-84AD-43FF-9334-793E1CC1BF11}
+
+
+.namespace CrackMe
+{
+  .class private auto ansi beforefieldinit AppSettings
+  	extends [System]System.Configuration.ApplicationSettingsBase
+  {
+
+    // method line 1
+    .method public hidebysig specialname 
+           instance default string get_DefaultKey ()  cil managed 
+    {
+        // Method begins at RVA 0x2050
+	// Code size 17 (0x11)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldstr "DefaultKey"
+	IL_0006:  callvirt instance object class [System]System.Configuration.SettingsBase::get_Item(string)
+	IL_000b:  castclass [mscorlib]System.String
+	IL_0010:  ret 
+    } // end of method AppSettings::get_DefaultKey
+
+    // method line 2
+    .method public hidebysig specialname rtspecialname 
+           instance default void '.ctor' ()  cil managed 
+    {
+        // Method begins at RVA 0x2062
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  call instance void class [System]System.Configuration.ApplicationSettingsBase::'.ctor'()
+	IL_0006:  ret 
+    } // end of method AppSettings::.ctor
+
+	.property instance string DefaultKey ()
+	{
+		.custom instance void class [System]System.Configuration.ApplicationScopedSettingAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+		.custom instance void class [mscorlib]System.Diagnostics.DebuggerNonUserCodeAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+		.custom instance void class [System]System.Configuration.DefaultSettingValueAttribute::'.ctor'(string) =  (
+		01 00 10 66 31 6B 34 62 76 36 67 73 79 3F 4D 45   // ...f1k4bv6gsy?ME
+		57 21 21 00 00                                  ) // W!!..
+
+		.get instance default string CrackMe.AppSettings::get_DefaultKey () 
+	}
+  } // end of class CrackMe.AppSettings
+}
+
+.namespace CrackMe
+{
+  .class private auto ansi beforefieldinit CryptoOperation
+  	extends [mscorlib]System.Object
+  {
+    .field  private  string '<FileName>k__BackingField'
+    .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+    .field  private  unsigned int8[] '<UserKey>k__BackingField'
+    .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+    .field  private  int32 '<KeyLength>k__BackingField'
+    .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+    .field  private  unsigned int8[] '<IV>k__BackingField'
+    .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+    .field  private  unsigned int8[] '<ProcessingBytes>k__BackingField'
+    .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+
+    // method line 3
+    .method public hidebysig specialname 
+           instance default string get_FileName ()  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x206a
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldfld string CrackMe.CryptoOperation::'<FileName>k__BackingField'
+	IL_0006:  ret 
+    } // end of method CryptoOperation::get_FileName
+
+    // method line 4
+    .method public hidebysig specialname 
+           instance default void set_FileName (string 'value')  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x2072
+	// Code size 8 (0x8)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldarg.1 
+	IL_0002:  stfld string CrackMe.CryptoOperation::'<FileName>k__BackingField'
+	IL_0007:  ret 
+    } // end of method CryptoOperation::set_FileName
+
+    // method line 5
+    .method public hidebysig specialname 
+           instance default void set_UserPassword (string 'value')  cil managed 
+    {
+        // Method begins at RVA 0x207c
+	// Code size 44 (0x2c)
+	.maxstack 3
+	.locals init (
+		unsigned int8[]	V_0)
+	IL_0000:  ldarg.0 
+	IL_0001:  ldc.i4.s 0x10
+	IL_0003:  call instance void class CrackMe.CryptoOperation::set_KeyLength(int32)
+	IL_0008:  call class [mscorlib]System.Security.Cryptography.MD5 class [mscorlib]System.Security.Cryptography.MD5::Create()
+	IL_000d:  call class [mscorlib]System.Text.Encoding class [mscorlib]System.Text.Encoding::get_UTF8()
+	IL_0012:  ldarg.1 
+	IL_0013:  callvirt instance unsigned int8[] class [mscorlib]System.Text.Encoding::GetBytes(string)
+	IL_0018:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.HashAlgorithm::ComputeHash(unsigned int8[])
+	IL_001d:  stloc.0 
+	IL_001e:  ldarg.0 
+	IL_001f:  ldarg.0 
+	IL_0020:  ldloc.0 
+	IL_0021:  call instance unsigned int8[] class CrackMe.CryptoOperation::CombineKeys(unsigned int8[])
+	IL_0026:  call instance void class CrackMe.CryptoOperation::set_UserKey(unsigned int8[])
+	IL_002b:  ret 
+    } // end of method CryptoOperation::set_UserPassword
+
+    // method line 6
+    .method private hidebysig specialname 
+           instance default unsigned int8[] get_UserKey ()  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20b4
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldfld unsigned int8[] CrackMe.CryptoOperation::'<UserKey>k__BackingField'
+	IL_0006:  ret 
+    } // end of method CryptoOperation::get_UserKey
+
+    // method line 7
+    .method private hidebysig specialname 
+           instance default void set_UserKey (unsigned int8[] 'value')  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20bc
+	// Code size 8 (0x8)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldarg.1 
+	IL_0002:  stfld unsigned int8[] CrackMe.CryptoOperation::'<UserKey>k__BackingField'
+	IL_0007:  ret 
+    } // end of method CryptoOperation::set_UserKey
+
+    // method line 8
+    .method private hidebysig specialname 
+           instance default int32 get_KeyLength ()  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20c5
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldfld int32 CrackMe.CryptoOperation::'<KeyLength>k__BackingField'
+	IL_0006:  ret 
+    } // end of method CryptoOperation::get_KeyLength
+
+    // method line 9
+    .method private hidebysig specialname 
+           instance default void set_KeyLength (int32 'value')  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20cd
+	// Code size 8 (0x8)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldarg.1 
+	IL_0002:  stfld int32 CrackMe.CryptoOperation::'<KeyLength>k__BackingField'
+	IL_0007:  ret 
+    } // end of method CryptoOperation::set_KeyLength
+
+    // method line 10
+    .method public hidebysig specialname 
+           instance default unsigned int8[] get_IV ()  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20d6
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldfld unsigned int8[] CrackMe.CryptoOperation::'<IV>k__BackingField'
+	IL_0006:  ret 
+    } // end of method CryptoOperation::get_IV
+
+    // method line 11
+    .method public hidebysig specialname 
+           instance default void set_IV (unsigned int8[] 'value')  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20de
+	// Code size 8 (0x8)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldarg.1 
+	IL_0002:  stfld unsigned int8[] CrackMe.CryptoOperation::'<IV>k__BackingField'
+	IL_0007:  ret 
+    } // end of method CryptoOperation::set_IV
+
+    // method line 12
+    .method public hidebysig specialname 
+           instance default unsigned int8[] get_ProcessingBytes ()  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20e7
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldfld unsigned int8[] CrackMe.CryptoOperation::'<ProcessingBytes>k__BackingField'
+	IL_0006:  ret 
+    } // end of method CryptoOperation::get_ProcessingBytes
+
+    // method line 13
+    .method public hidebysig specialname 
+           instance default void set_ProcessingBytes (unsigned int8[] 'value')  cil managed 
+    {
+        .custom instance void class [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::'.ctor'() =  (01 00 00 00 ) // ....
+
+        // Method begins at RVA 0x20ef
+	// Code size 8 (0x8)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldarg.1 
+	IL_0002:  stfld unsigned int8[] CrackMe.CryptoOperation::'<ProcessingBytes>k__BackingField'
+	IL_0007:  ret 
+    } // end of method CryptoOperation::set_ProcessingBytes
+
+    // method line 14
+    .method private hidebysig 
+           instance default unsigned int8[] CombineKeys (unsigned int8[] UserKey)  cil managed 
+    {
+        // Method begins at RVA 0x20f8
+	// Code size 400 (0x190)
+	.maxstack 4
+	.locals init (
+		class CrackMe.AppSettings	V_0,
+		int64	V_1,
+		int64	V_2,
+		int64	V_3,
+		int64	V_4,
+		int64	V_5,
+		int64	V_6,
+		int64	V_7,
+		int64	V_8,
+		int32	V_9,
+		int32	V_10,
+		int32	V_11,
+		int32	V_12,
+		unsigned int8[]	V_13,
+		unsigned int8[]	V_14,
+		unsigned int8[]	V_15,
+		unsigned int8[]	V_16,
+		unsigned int8[]	V_17,
+		int32	V_18)
+	IL_0000:  newobj instance void class CrackMe.AppSettings::'.ctor'()
+	IL_0005:  stloc.0 
+	IL_0006:  call class [mscorlib]System.Text.Encoding class [mscorlib]System.Text.Encoding::get_UTF8()
+	IL_000b:  ldloc.0 
+	IL_000c:  callvirt instance string class CrackMe.AppSettings::get_DefaultKey()
+	IL_0011:  callvirt instance unsigned int8[] class [mscorlib]System.Text.Encoding::GetBytes(string)
+	IL_0016:  dup 
+	IL_0017:  ldc.i4.0 
+	IL_0018:  call int64 class [mscorlib]System.BitConverter::ToInt64(unsigned int8[], int32)
+	IL_001d:  stloc.1 
+	IL_001e:  ldc.i4.8 
+	IL_001f:  call int64 class [mscorlib]System.BitConverter::ToInt64(unsigned int8[], int32)
+	IL_0024:  stloc.2 
+	IL_0025:  ldarg.1 
+	IL_0026:  ldc.i4.0 
+	IL_0027:  call int64 class [mscorlib]System.BitConverter::ToInt64(unsigned int8[], int32)
+	IL_002c:  stloc.3 
+	IL_002d:  ldarg.1 
+	IL_002e:  ldc.i4.8 
+	IL_002f:  call int64 class [mscorlib]System.BitConverter::ToInt64(unsigned int8[], int32)
+	IL_0034:  stloc.s 4
+	IL_0036:  ldloc.1 
+	IL_0037:  ldloc.3 
+	IL_0038:  xor 
+	IL_0039:  stloc.s 5
+	IL_003b:  ldloc.2 
+	IL_003c:  ldloc.s 4
+	IL_003e:  xor 
+	IL_003f:  stloc.s 6
+	IL_0041:  ldloc.1 
+	IL_0042:  not 
+	IL_0043:  ldloc.3 
+	IL_0044:  and 
+	IL_0045:  ldloc.3 
+	IL_0046:  not 
+	IL_0047:  ldloc.1 
+	IL_0048:  and 
+	IL_0049:  or 
+	IL_004a:  stloc.s 7
+	IL_004c:  ldloc.2 
+	IL_004d:  not 
+	IL_004e:  ldloc.s 4
+	IL_0050:  and 
+	IL_0051:  ldloc.s 4
+	IL_0053:  not 
+	IL_0054:  ldloc.2 
+	IL_0055:  and 
+	IL_0056:  or 
+	IL_0057:  stloc.s 8
+	IL_0059:  ldloc.s 5
+	IL_005b:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int64)
+	IL_0060:  ldc.i4.0 
+	IL_0061:  call int32 class [mscorlib]System.BitConverter::ToInt32(unsigned int8[], int32)
+	IL_0066:  stloc.s 9
+	IL_0068:  ldloc.s 5
+	IL_006a:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int64)
+	IL_006f:  ldc.i4.4 
+	IL_0070:  call int32 class [mscorlib]System.BitConverter::ToInt32(unsigned int8[], int32)
+	IL_0075:  stloc.s 10
+	IL_0077:  ldloc.s 6
+	IL_0079:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int64)
+	IL_007e:  ldc.i4.0 
+	IL_007f:  call int32 class [mscorlib]System.BitConverter::ToInt32(unsigned int8[], int32)
+	IL_0084:  stloc.s 11
+	IL_0086:  ldloc.s 6
+	IL_0088:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int64)
+	IL_008d:  ldc.i4.4 
+	IL_008e:  call int32 class [mscorlib]System.BitConverter::ToInt32(unsigned int8[], int32)
+	IL_0093:  stloc.s 12
+	IL_0095:  ldloc.s 9
+	IL_0097:  ldc.i4.2 
+	IL_0098:  shr 
+	IL_0099:  stloc.s 9
+	IL_009b:  ldloc.s 10
+	IL_009d:  ldc.i4.2 
+	IL_009e:  shr 
+	IL_009f:  stloc.s 10
+	IL_00a1:  ldloc.s 9
+	IL_00a3:  ldc.i4.1 
+	IL_00a4:  shl 
+	IL_00a5:  stloc.s 9
+	IL_00a7:  ldloc.s 10
+	IL_00a9:  ldc.i4.1 
+	IL_00aa:  shl 
+	IL_00ab:  stloc.s 10
+	IL_00ad:  ldloc.s 9
+	IL_00af:  ldc.i4.1 
+	IL_00b0:  shl 
+	IL_00b1:  stloc.s 12
+	IL_00b3:  ldloc.s 11
+	IL_00b5:  ldc.i4.2 
+	IL_00b6:  shr 
+	IL_00b7:  stloc.s 11
+	IL_00b9:  ldloc.s 9
+	IL_00bb:  ldc.i4.1 
+	IL_00bc:  shl 
+	IL_00bd:  stloc.s 11
+	IL_00bf:  ldloc.s 12
+	IL_00c1:  ldc.i4.2 
+	IL_00c2:  shr 
+	IL_00c3:  stloc.s 12
+	IL_00c5:  ldloc.s 9
+	IL_00c7:  ldloc.s 12
+	IL_00c9:  and 
+	IL_00ca:  not 
+	IL_00cb:  ldloc.s 9
+	IL_00cd:  not 
+	IL_00ce:  ldloc.s 12
+	IL_00d0:  not 
+	IL_00d1:  or 
+	IL_00d2:  bne.un.s IL_00f9
+
+	IL_00d4:  ldloc.s 10
+	IL_00d6:  stloc.s 11
+	IL_00d8:  ldloc.s 7
+	IL_00da:  not 
+	IL_00db:  not 
+	IL_00dc:  ldloc.s 5
+	IL_00de:  beq.s IL_00ee
+
+	IL_00e0:  ldloc.s 8
+	IL_00e2:  not 
+	IL_00e3:  not 
+	IL_00e4:  ldloc.s 6
+	IL_00e6:  beq.s IL_00ee
+
+	IL_00e8:  ldloc.s 12
+	IL_00ea:  stloc.s 10
+	IL_00ec:  br.s IL_00f2
+
+	IL_00ee:  ldloc.s 10
+	IL_00f0:  stloc.s 12
+	IL_00f2:  ldloc.s 12
+	IL_00f4:  not 
+	IL_00f5:  stloc.s 9
+	IL_00f7:  br.s IL_011c
+
+	IL_00f9:  ldloc.s 9
+	IL_00fb:  stloc.s 11
+	IL_00fd:  ldloc.s 7
+	IL_00ff:  not 
+	IL_0100:  not 
+	IL_0101:  ldloc.s 5
+	IL_0103:  bne.un.s IL_0113
+
+	IL_0105:  ldloc.s 8
+	IL_0107:  not 
+	IL_0108:  not 
+	IL_0109:  ldloc.s 6
+	IL_010b:  bne.un.s IL_0113
+
+	IL_010d:  ldloc.s 12
+	IL_010f:  stloc.s 10
+	IL_0111:  br.s IL_0117
+
+	IL_0113:  ldloc.s 10
+	IL_0115:  stloc.s 12
+	IL_0117:  ldloc.s 10
+	IL_0119:  not 
+	IL_011a:  stloc.s 9
+	IL_011c:  ldloc.s 9
+	IL_011e:  not 
+	IL_011f:  stloc.s 9
+	IL_0121:  ldloc.s 9
+	IL_0123:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int32)
+	IL_0128:  stloc.s 13
+	IL_012a:  ldloc.s 10
+	IL_012c:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int32)
+	IL_0131:  stloc.s 14
+	IL_0133:  ldloc.s 11
+	IL_0135:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int32)
+	IL_013a:  stloc.s 15
+	IL_013c:  ldloc.s 12
+	IL_013e:  call unsigned int8[] class [mscorlib]System.BitConverter::GetBytes(int32)
+	IL_0143:  stloc.s 16
+	IL_0145:  ldc.i4.s 0x10
+	IL_0147:  newarr [mscorlib]System.Byte
+	IL_014c:  stloc.s 17
+	IL_014e:  ldc.i4.0 
+	IL_014f:  stloc.s 18
+	IL_0151:  br.s IL_0188
+
+	IL_0153:  ldloc.s 17
+	IL_0155:  ldloc.s 18
+	IL_0157:  ldloc.s 13
+	IL_0159:  ldloc.s 18
+	IL_015b:  ldelem.u1 
+	IL_015c:  stelem.i1 
+	IL_015d:  ldloc.s 17
+	IL_015f:  ldloc.s 18
+	IL_0161:  ldc.i4.4 
+	IL_0162:  add 
+	IL_0163:  ldloc.s 14
+	IL_0165:  ldloc.s 18
+	IL_0167:  ldelem.u1 
+	IL_0168:  stelem.i1 
+	IL_0169:  ldloc.s 17
+	IL_016b:  ldloc.s 18
+	IL_016d:  ldc.i4.8 
+	IL_016e:  add 
+	IL_016f:  ldloc.s 15
+	IL_0171:  ldloc.s 18
+	IL_0173:  ldelem.u1 
+	IL_0174:  stelem.i1 
+	IL_0175:  ldloc.s 17
+	IL_0177:  ldloc.s 18
+	IL_0179:  ldc.i4.s 0x0c
+	IL_017b:  add 
+	IL_017c:  ldloc.s 16
+	IL_017e:  ldloc.s 18
+	IL_0180:  ldelem.u1 
+	IL_0181:  stelem.i1 
+	IL_0182:  ldloc.s 18
+	IL_0184:  ldc.i4.1 
+	IL_0185:  add 
+	IL_0186:  stloc.s 18
+	IL_0188:  ldloc.s 18
+	IL_018a:  ldc.i4.4 
+	IL_018b:  blt.s IL_0153
+
+	IL_018d:  ldloc.s 17
+	IL_018f:  ret 
+    } // end of method CryptoOperation::CombineKeys
+
+    // method line 15
+    .method private static hidebysig 
+           default unsigned int8[] GetMd5 (string input)  cil managed 
+    {
+        // Method begins at RVA 0x2294
+	// Code size 22 (0x16)
+	.maxstack 8
+	IL_0000:  call class [mscorlib]System.Security.Cryptography.MD5 class [mscorlib]System.Security.Cryptography.MD5::Create()
+	IL_0005:  call class [mscorlib]System.Text.Encoding class [mscorlib]System.Text.Encoding::get_UTF8()
+	IL_000a:  ldarg.0 
+	IL_000b:  callvirt instance unsigned int8[] class [mscorlib]System.Text.Encoding::GetBytes(string)
+	IL_0010:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.HashAlgorithm::ComputeHash(unsigned int8[])
+	IL_0015:  ret 
+    } // end of method CryptoOperation::GetMd5
+
+    // method line 16
+    .method public hidebysig 
+           instance default unsigned int8[] EncryptFile ()  cil managed 
+    {
+        // Method begins at RVA 0x22ac
+	// Code size 157 (0x9d)
+	.maxstack 3
+	.locals init (
+		unsigned int8[]	V_0,
+		class [System.Core]System.Security.Cryptography.AesCryptoServiceProvider	V_1,
+		class [mscorlib]System.Security.Cryptography.ICryptoTransform	V_2,
+		class [mscorlib]System.IO.MemoryStream	V_3,
+		class [mscorlib]System.Security.Cryptography.CryptoStream	V_4,
+		class [mscorlib]System.IO.BinaryWriter	V_5)
+	IL_0000:  ldc.i4.0 
+	IL_0001:  newarr [mscorlib]System.Byte
+	IL_0006:  stloc.0 
+	IL_0007:  newobj instance void class [System.Core]System.Security.Cryptography.AesCryptoServiceProvider::'.ctor'()
+	IL_000c:  stloc.1 
+	.try { // 3
+	  IL_000d:  ldloc.1 
+	  IL_000e:  callvirt instance void class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::GenerateIV()
+	  IL_0013:  ldarg.0 
+	  IL_0014:  ldloc.1 
+	  IL_0015:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
+	  IL_001a:  call instance void class CrackMe.CryptoOperation::set_IV(unsigned int8[])
+	  IL_001f:  ldloc.1 
+	  IL_0020:  ldarg.0 
+	  IL_0021:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_UserKey()
+	  IL_0026:  callvirt instance void class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_Key(unsigned int8[])
+	  IL_002b:  ldloc.1 
+	  IL_002c:  ldloc.1 
+	  IL_002d:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_Key()
+	  IL_0032:  ldloc.1 
+	  IL_0033:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
+	  IL_0038:  callvirt instance class [mscorlib]System.Security.Cryptography.ICryptoTransform class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::CreateEncryptor(unsigned int8[], unsigned int8[])
+	  IL_003d:  stloc.2 
+	  IL_003e:  newobj instance void class [mscorlib]System.IO.MemoryStream::'.ctor'()
+	  IL_0043:  stloc.3 
+	  .try { // 2
+	    IL_0044:  ldloc.3 
+	    IL_0045:  ldloc.2 
+	    IL_0046:  ldc.i4.1 
+	    IL_0047:  newobj instance void class [mscorlib]System.Security.Cryptography.CryptoStream::'.ctor'(class [mscorlib]System.IO.Stream, class [mscorlib]System.Security.Cryptography.ICryptoTransform, valuetype [mscorlib]System.Security.Cryptography.CryptoStreamMode)
+	    IL_004c:  stloc.s 4
+	    .try { // 1
+	      IL_004e:  ldloc.s 4
+	      IL_0050:  newobj instance void class [mscorlib]System.IO.BinaryWriter::'.ctor'(class [mscorlib]System.IO.Stream)
+	      IL_0055:  stloc.s 5
+	      .try { // 0
+	        IL_0057:  ldloc.s 5
+	        IL_0059:  ldarg.0 
+	        IL_005a:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_ProcessingBytes()
+	        IL_005f:  callvirt instance void class [mscorlib]System.IO.BinaryWriter::Write(unsigned int8[])
+	        IL_0064:  leave.s IL_0072
+
+	      } // end .try 0
+	      finally  { // 0
+	        IL_0066:  ldloc.s 5
+	        IL_0068:  brfalse.s IL_0071
+
+	        IL_006a:  ldloc.s 5
+	        IL_006c:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	        IL_0071:  endfinally 
+	      } // end handler 0
+	      IL_0072:  ldloc.3 
+	      IL_0073:  callvirt instance unsigned int8[] class [mscorlib]System.IO.MemoryStream::ToArray()
+	      IL_0078:  stloc.0 
+	      IL_0079:  leave.s IL_009b
+
+	    } // end .try 1
+	    finally  { // 1
+	      IL_007b:  ldloc.s 4
+	      IL_007d:  brfalse.s IL_0086
+
+	      IL_007f:  ldloc.s 4
+	      IL_0081:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	      IL_0086:  endfinally 
+	    } // end handler 1
+	  } // end .try 2
+	  finally  { // 2
+	    IL_0087:  ldloc.3 
+	    IL_0088:  brfalse.s IL_0090
+
+	    IL_008a:  ldloc.3 
+	    IL_008b:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	    IL_0090:  endfinally 
+	  } // end handler 2
+	} // end .try 3
+	finally  { // 3
+	  IL_0091:  ldloc.1 
+	  IL_0092:  brfalse.s IL_009a
+
+	  IL_0094:  ldloc.1 
+	  IL_0095:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	  IL_009a:  endfinally 
+	} // end handler 3
+	IL_009b:  ldloc.0 
+	IL_009c:  ret 
+    } // end of method CryptoOperation::EncryptFile
+
+    // method line 17
+    .method public hidebysig 
+           instance default unsigned int8[] DecryptFile ()  cil managed 
+    {
+        // Method begins at RVA 0x238c
+	// Code size 186 (0xba)
+	.maxstack 3
+	.locals init (
+		unsigned int8[]	V_0,
+		class [System.Core]System.Security.Cryptography.AesCryptoServiceProvider	V_1,
+		class [mscorlib]System.Security.Cryptography.ICryptoTransform	V_2,
+		class [mscorlib]System.IO.FileInfo	V_3,
+		class [mscorlib]System.IO.MemoryStream	V_4,
+		class [mscorlib]System.Security.Cryptography.CryptoStream	V_5,
+		class [mscorlib]System.IO.BinaryReader	V_6)
+	IL_0000:  ldnull 
+	IL_0001:  stloc.0 
+	IL_0002:  newobj instance void class [System.Core]System.Security.Cryptography.AesCryptoServiceProvider::'.ctor'()
+	IL_0007:  stloc.1 
+	.try { // 4
+	  IL_0008:  ldloc.1 
+	  IL_0009:  ldarg.0 
+	  IL_000a:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_UserKey()
+	  IL_000f:  callvirt instance void class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_Key(unsigned int8[])
+	  IL_0014:  ldloc.1 
+	  IL_0015:  ldarg.0 
+	  IL_0016:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_IV()
+	  IL_001b:  callvirt instance void class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_IV(unsigned int8[])
+	  .try { // 3
+	    IL_0020:  ldloc.1 
+	    IL_0021:  ldloc.1 
+	    IL_0022:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_Key()
+	    IL_0027:  ldloc.1 
+	    IL_0028:  callvirt instance unsigned int8[] class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
+	    IL_002d:  callvirt instance class [mscorlib]System.Security.Cryptography.ICryptoTransform class [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::CreateDecryptor(unsigned int8[], unsigned int8[])
+	    IL_0032:  stloc.2 
+	    IL_0033:  ldarg.0 
+	    IL_0034:  call instance string class CrackMe.CryptoOperation::get_FileName()
+	    IL_0039:  newobj instance void class [mscorlib]System.IO.FileInfo::'.ctor'(string)
+	    IL_003e:  stloc.3 
+	    IL_003f:  ldarg.0 
+	    IL_0040:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_ProcessingBytes()
+	    IL_0045:  newobj instance void class [mscorlib]System.IO.MemoryStream::'.ctor'(unsigned int8[])
+	    IL_004a:  stloc.s 4
+	    .try { // 2
+	      IL_004c:  ldloc.s 4
+	      IL_004e:  ldloc.2 
+	      IL_004f:  ldc.i4.0 
+	      IL_0050:  newobj instance void class [mscorlib]System.Security.Cryptography.CryptoStream::'.ctor'(class [mscorlib]System.IO.Stream, class [mscorlib]System.Security.Cryptography.ICryptoTransform, valuetype [mscorlib]System.Security.Cryptography.CryptoStreamMode)
+	      IL_0055:  stloc.s 5
+	      .try { // 1
+	        IL_0057:  ldloc.s 5
+	        IL_0059:  newobj instance void class [mscorlib]System.IO.BinaryReader::'.ctor'(class [mscorlib]System.IO.Stream)
+	        IL_005e:  stloc.s 6
+	        .try { // 0
+	          IL_0060:  ldloc.s 6
+	          IL_0062:  ldloc.3 
+	          IL_0063:  callvirt instance int64 class [mscorlib]System.IO.FileInfo::get_Length()
+	          IL_0068:  conv.i4 
+	          IL_0069:  callvirt instance unsigned int8[] class [mscorlib]System.IO.BinaryReader::ReadBytes(int32)
+	          IL_006e:  stloc.0 
+	          IL_006f:  leave.s IL_007d
+
+	        } // end .try 0
+	        finally  { // 0
+	          IL_0071:  ldloc.s 6
+	          IL_0073:  brfalse.s IL_007c
+
+	          IL_0075:  ldloc.s 6
+	          IL_0077:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	          IL_007c:  endfinally 
+	        } // end handler 0
+	        IL_007d:  leave.s IL_008b
+
+	      } // end .try 1
+	      finally  { // 1
+	        IL_007f:  ldloc.s 5
+	        IL_0081:  brfalse.s IL_008a
+
+	        IL_0083:  ldloc.s 5
+	        IL_0085:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	        IL_008a:  endfinally 
+	      } // end handler 1
+	      IL_008b:  leave.s IL_0099
+
+	    } // end .try 2
+	    finally  { // 2
+	      IL_008d:  ldloc.s 4
+	      IL_008f:  brfalse.s IL_0098
+
+	      IL_0091:  ldloc.s 4
+	      IL_0093:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	      IL_0098:  endfinally 
+	    } // end handler 2
+	    IL_0099:  leave.s IL_00b8
+
+	  } // end .try 3
+	  catch class [mscorlib]System.Object { // 3
+	    IL_009b:  pop 
+	    IL_009c:  ldstr "Failed to decrypt file {0}: wrong password."
+	    IL_00a1:  ldarg.0 
+	    IL_00a2:  call instance string class CrackMe.CryptoOperation::get_FileName()
+	    IL_00a7:  call void class [mscorlib]System.Console::WriteLine(string, object)
+	    IL_00ac:  leave.s IL_00b8
+
+	  } // end handler 3
+	} // end .try 4
+	finally  { // 4
+	  IL_00ae:  ldloc.1 
+	  IL_00af:  brfalse.s IL_00b7
+
+	  IL_00b1:  ldloc.1 
+	  IL_00b2:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	  IL_00b7:  endfinally 
+	} // end handler 4
+	IL_00b8:  ldloc.0 
+	IL_00b9:  ret 
+    } // end of method CryptoOperation::DecryptFile
+
+    // method line 18
+    .method public hidebysig 
+           instance default void ParseFileToEncrypt ()  cil managed 
+    {
+        // Method begins at RVA 0x2494
+	// Code size 18 (0x12)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  ldarg.0 
+	IL_0002:  call instance string class CrackMe.CryptoOperation::get_FileName()
+	IL_0007:  call unsigned int8[] class [mscorlib]System.IO.File::ReadAllBytes(string)
+	IL_000c:  call instance void class CrackMe.CryptoOperation::set_ProcessingBytes(unsigned int8[])
+	IL_0011:  ret 
+    } // end of method CryptoOperation::ParseFileToEncrypt
+
+    // method line 19
+    .method public hidebysig 
+           instance default void ParseFileToDecrypt ()  cil managed 
+    {
+        // Method begins at RVA 0x24a8
+	// Code size 100 (0x64)
+	.maxstack 5
+	.locals init (
+		unsigned int8[]	V_0,
+		unsigned int8[]	V_1)
+	.try { // 0
+	  IL_0000:  ldarg.0 
+	  IL_0001:  call instance string class CrackMe.CryptoOperation::get_FileName()
+	  IL_0006:  call unsigned int8[] class [mscorlib]System.IO.File::ReadAllBytes(string)
+	  IL_000b:  stloc.0 
+	  IL_000c:  ldc.i4.s 0x10
+	  IL_000e:  newarr [mscorlib]System.Byte
+	  IL_0013:  stloc.1 
+	  IL_0014:  ldloc.0 
+	  IL_0015:  ldc.i4.0 
+	  IL_0016:  ldloc.1 
+	  IL_0017:  ldc.i4.0 
+	  IL_0018:  ldc.i4.s 0x10
+	  IL_001a:  call void class [mscorlib]System.Array::Copy(class [mscorlib]System.Array, int32, class [mscorlib]System.Array, int32, int32)
+	  IL_001f:  ldarg.0 
+	  IL_0020:  ldloc.1 
+	  IL_0021:  call instance void class CrackMe.CryptoOperation::set_IV(unsigned int8[])
+	  IL_0026:  ldarg.0 
+	  IL_0027:  ldloc.0 
+	  IL_0028:  ldlen 
+	  IL_0029:  conv.i4 
+	  IL_002a:  ldc.i4.s 0x10
+	  IL_002c:  sub 
+	  IL_002d:  newarr [mscorlib]System.Byte
+	  IL_0032:  call instance void class CrackMe.CryptoOperation::set_ProcessingBytes(unsigned int8[])
+	  IL_0037:  ldloc.0 
+	  IL_0038:  ldc.i4.s 0x10
+	  IL_003a:  ldarg.0 
+	  IL_003b:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_ProcessingBytes()
+	  IL_0040:  ldc.i4.0 
+	  IL_0041:  ldarg.0 
+	  IL_0042:  call instance unsigned int8[] class CrackMe.CryptoOperation::get_ProcessingBytes()
+	  IL_0047:  ldlen 
+	  IL_0048:  conv.i4 
+	  IL_0049:  call void class [mscorlib]System.Array::Copy(class [mscorlib]System.Array, int32, class [mscorlib]System.Array, int32, int32)
+	  IL_004e:  leave.s IL_0063
+
+	} // end .try 0
+	catch class [mscorlib]System.Object { // 0
+	  IL_0050:  pop 
+	  IL_0051:  ldstr "Failed to decrypt file {0}: incorrect input file."
+	  IL_0056:  ldarg.0 
+	  IL_0057:  call instance string class CrackMe.CryptoOperation::get_FileName()
+	  IL_005c:  call void class [mscorlib]System.Console::WriteLine(string, object)
+	  IL_0061:  leave.s IL_0063
+
+	} // end handler 0
+	IL_0063:  ret 
+    } // end of method CryptoOperation::ParseFileToDecrypt
+
+    // method line 20
+    .method public hidebysig specialname rtspecialname 
+           instance default void '.ctor' ()  cil managed 
+    {
+        // Method begins at RVA 0x2528
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  call instance void object::'.ctor'()
+	IL_0006:  ret 
+    } // end of method CryptoOperation::.ctor
+
+	.property instance string FileName ()
+	{
+		.get instance default string CrackMe.CryptoOperation::get_FileName () 
+		.set instance default void CrackMe.CryptoOperation::set_FileName (string 'value') 
+	}
+	.property instance string UserPassword ()
+	{
+		.set instance default void CrackMe.CryptoOperation::set_UserPassword (string 'value') 
+	}
+	.property instance unsigned int8[] UserKey ()
+	{
+		.get instance default unsigned int8[] CrackMe.CryptoOperation::get_UserKey () 
+		.set instance default void CrackMe.CryptoOperation::set_UserKey (unsigned int8[] 'value') 
+	}
+	.property instance int32 KeyLength ()
+	{
+		.get instance default int32 CrackMe.CryptoOperation::get_KeyLength () 
+		.set instance default void CrackMe.CryptoOperation::set_KeyLength (int32 'value') 
+	}
+	.property instance unsigned int8[] IV ()
+	{
+		.get instance default unsigned int8[] CrackMe.CryptoOperation::get_IV () 
+		.set instance default void CrackMe.CryptoOperation::set_IV (unsigned int8[] 'value') 
+	}
+	.property instance unsigned int8[] ProcessingBytes ()
+	{
+		.get instance default unsigned int8[] CrackMe.CryptoOperation::get_ProcessingBytes () 
+		.set instance default void CrackMe.CryptoOperation::set_ProcessingBytes (unsigned int8[] 'value') 
+	}
+  } // end of class CrackMe.CryptoOperation
+}
+
+.namespace CrackMe
+{
+  .class private auto ansi beforefieldinit Program
+  	extends [mscorlib]System.Object
+  {
+
+    // method line 21
+    .method private static hidebysig 
+           default void Main (string[] args)  cil managed 
+    {
+        // Method begins at RVA 0x2530
+	.entrypoint
+	// Code size 176 (0xb0)
+	.maxstack 2
+	.locals init (
+		string	V_0,
+		string	V_1,
+		string	V_2,
+		string	V_3,
+		class CrackMe.CryptoOperation	V_4)
+	IL_0000:  ldstr ""
+	IL_0005:  stloc.0 
+	IL_0006:  ldstr ""
+	IL_000b:  stloc.1 
+	IL_000c:  ldstr ""
+	IL_0011:  stloc.2 
+	IL_0012:  ldstr ""
+	IL_0017:  stloc.3 
+	IL_0018:  ldarg.0 
+	IL_0019:  ldlen 
+	IL_001a:  conv.i4 
+	IL_001b:  ldc.i4.4 
+	IL_001c:  beq.s IL_0033
+
+	IL_001e:  ldstr "Incorrect arguments"
+	IL_0023:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_0028:  ldstr "Usage: CrackMe.exe <input_file> <output_file> <user_pass_phrase> <mode>"
+	IL_002d:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_0032:  ret 
+	IL_0033:  ldarg.0 
+	IL_0034:  ldc.i4.0 
+	IL_0035:  ldelem.ref 
+	IL_0036:  stloc.0 
+	IL_0037:  ldarg.0 
+	IL_0038:  ldc.i4.1 
+	IL_0039:  ldelem.ref 
+	IL_003a:  stloc.1 
+	IL_003b:  ldarg.0 
+	IL_003c:  ldc.i4.2 
+	IL_003d:  ldelem.ref 
+	IL_003e:  stloc.2 
+	IL_003f:  ldarg.0 
+	IL_0040:  ldc.i4.3 
+	IL_0041:  ldelem.ref 
+	IL_0042:  stloc.3 
+	IL_0043:  ldloc.0 
+	IL_0044:  call bool class [mscorlib]System.IO.File::Exists(string)
+	IL_0049:  brtrue.s IL_0056
+
+	IL_004b:  ldstr "Input file doesn't exist"
+	IL_0050:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_0055:  ret 
+	IL_0056:  newobj instance void class CrackMe.CryptoOperation::'.ctor'()
+	IL_005b:  stloc.s 4
+	IL_005d:  ldloc.s 4
+	IL_005f:  ldloc.0 
+	IL_0060:  callvirt instance void class CrackMe.CryptoOperation::set_FileName(string)
+	IL_0065:  ldloc.s 4
+	IL_0067:  ldloc.2 
+	IL_0068:  callvirt instance void class CrackMe.CryptoOperation::set_UserPassword(string)
+	IL_006d:  ldloc.3 
+	IL_006e:  ldstr "encrypt"
+	IL_0073:  call bool string::op_Equality(string, string)
+	IL_0078:  brtrue.s IL_0089
+
+	IL_007a:  ldloc.3 
+	IL_007b:  ldstr "decrypt"
+	IL_0080:  call bool string::op_Equality(string, string)
+	IL_0085:  brtrue.s IL_0092
+
+	IL_0087:  br.s IL_009b
+
+	IL_0089:  ldloc.s 4
+	IL_008b:  ldloc.1 
+	IL_008c:  call void class CrackMe.Program::Encrypt(class CrackMe.CryptoOperation, string)
+	IL_0091:  ret 
+	IL_0092:  ldloc.s 4
+	IL_0094:  ldloc.1 
+	IL_0095:  call void class CrackMe.Program::Decrypt(class CrackMe.CryptoOperation, string)
+	IL_009a:  ret 
+	IL_009b:  ldstr "Incorrect mode"
+	IL_00a0:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_00a5:  ldstr "Use encrypt or decrypt"
+	IL_00aa:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_00af:  ret 
+    } // end of method Program::Main
+
+    // method line 22
+    .method private static hidebysig 
+           default void Encrypt (class CrackMe.CryptoOperation crypto, string outputFile)  cil managed 
+    {
+        // Method begins at RVA 0x25ec
+	// Code size 68 (0x44)
+	.maxstack 2
+	.locals init (
+		unsigned int8[]	V_0,
+		class [mscorlib]System.IO.BinaryWriter	V_1)
+	IL_0000:  ldarg.0 
+	IL_0001:  callvirt instance void class CrackMe.CryptoOperation::ParseFileToEncrypt()
+	IL_0006:  ldarg.0 
+	IL_0007:  callvirt instance unsigned int8[] class CrackMe.CryptoOperation::EncryptFile()
+	IL_000c:  stloc.0 
+	IL_000d:  ldarg.1 
+	IL_000e:  ldc.i4.2 
+	IL_000f:  call class [mscorlib]System.IO.FileStream class [mscorlib]System.IO.File::Open(string, valuetype [mscorlib]System.IO.FileMode)
+	IL_0014:  newobj instance void class [mscorlib]System.IO.BinaryWriter::'.ctor'(class [mscorlib]System.IO.Stream)
+	IL_0019:  stloc.1 
+	.try { // 0
+	  IL_001a:  ldloc.1 
+	  IL_001b:  ldarg.0 
+	  IL_001c:  callvirt instance unsigned int8[] class CrackMe.CryptoOperation::get_IV()
+	  IL_0021:  callvirt instance void class [mscorlib]System.IO.BinaryWriter::Write(unsigned int8[])
+	  IL_0026:  ldloc.1 
+	  IL_0027:  ldloc.0 
+	  IL_0028:  callvirt instance void class [mscorlib]System.IO.BinaryWriter::Write(unsigned int8[])
+	  IL_002d:  leave.s IL_0039
+
+	} // end .try 0
+	finally  { // 0
+	  IL_002f:  ldloc.1 
+	  IL_0030:  brfalse.s IL_0038
+
+	  IL_0032:  ldloc.1 
+	  IL_0033:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	  IL_0038:  endfinally 
+	} // end handler 0
+	IL_0039:  ldstr "That's all."
+	IL_003e:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_0043:  ret 
+    } // end of method Program::Encrypt
+
+    // method line 23
+    .method private static hidebysig 
+           default void Decrypt (class CrackMe.CryptoOperation crypto, string outputFile)  cil managed 
+    {
+        // Method begins at RVA 0x264c
+	// Code size 60 (0x3c)
+	.maxstack 2
+	.locals init (
+		unsigned int8[]	V_0,
+		class [mscorlib]System.IO.BinaryWriter	V_1)
+	IL_0000:  ldarg.0 
+	IL_0001:  callvirt instance void class CrackMe.CryptoOperation::ParseFileToDecrypt()
+	IL_0006:  ldarg.0 
+	IL_0007:  callvirt instance unsigned int8[] class CrackMe.CryptoOperation::DecryptFile()
+	IL_000c:  stloc.0 
+	IL_000d:  ldloc.0 
+	IL_000e:  brtrue.s IL_0011
+
+	IL_0010:  ret 
+	IL_0011:  ldarg.1 
+	IL_0012:  ldc.i4.2 
+	IL_0013:  call class [mscorlib]System.IO.FileStream class [mscorlib]System.IO.File::Open(string, valuetype [mscorlib]System.IO.FileMode)
+	IL_0018:  newobj instance void class [mscorlib]System.IO.BinaryWriter::'.ctor'(class [mscorlib]System.IO.Stream)
+	IL_001d:  stloc.1 
+	.try { // 0
+	  IL_001e:  ldloc.1 
+	  IL_001f:  ldloc.0 
+	  IL_0020:  callvirt instance void class [mscorlib]System.IO.BinaryWriter::Write(unsigned int8[])
+	  IL_0025:  leave.s IL_0031
+
+	} // end .try 0
+	finally  { // 0
+	  IL_0027:  ldloc.1 
+	  IL_0028:  brfalse.s IL_0030
+
+	  IL_002a:  ldloc.1 
+	  IL_002b:  callvirt instance void class [mscorlib]System.IDisposable::Dispose()
+	  IL_0030:  endfinally 
+	} // end handler 0
+	IL_0031:  ldstr "That's all."
+	IL_0036:  call void class [mscorlib]System.Console::WriteLine(string)
+	IL_003b:  ret 
+    } // end of method Program::Decrypt
+
+    // method line 24
+    .method public hidebysig specialname rtspecialname 
+           instance default void '.ctor' ()  cil managed 
+    {
+        // Method begins at RVA 0x2528
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  call instance void object::'.ctor'()
+	IL_0006:  ret 
+    } // end of method Program::.ctor
+
+  } // end of class CrackMe.Program
+}
+
+.namespace CrackMe.Properties
+{
+  .class private auto ansi sealed beforefieldinit Settings
+  	extends [mscorlib]System.Object
+  {
+
+    // method line 25
+    .method public hidebysig specialname rtspecialname 
+           instance default void '.ctor' ()  cil managed 
+    {
+        // Method begins at RVA 0x2528
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  call instance void object::'.ctor'()
+	IL_0006:  ret 
+    } // end of method Settings::.ctor
+
+    // method line 26
+    .method private hidebysig 
+           instance default void SettingChangingEventHandler (object sender, class [System]System.Configuration.SettingChangingEventArgs e)  cil managed 
+    {
+        // Method begins at RVA 0x26a4
+	// Code size 1 (0x1)
+	.maxstack 8
+	IL_0000:  ret 
+    } // end of method Settings::SettingChangingEventHandler
+
+    // method line 27
+    .method private hidebysig 
+           instance default void SettingsSavingEventHandler (object sender, class [System]System.ComponentModel.CancelEventArgs e)  cil managed 
+    {
+        // Method begins at RVA 0x26a4
+	// Code size 1 (0x1)
+	.maxstack 8
+	IL_0000:  ret 
+    } // end of method Settings::SettingsSavingEventHandler
+
+  } // end of class CrackMe.Properties.Settings
+}
+
