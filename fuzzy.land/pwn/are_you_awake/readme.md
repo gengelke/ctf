@@ -135,14 +135,14 @@ $ objdump -d awake
  804864d:	66 90                	xchg   %ax,%ax
  804864f:	90                   	nop
  ```
-In the disassembly of <main> we can see a function call to <func> with one
+In the disassembly of ```<main>``` we can see a function call to ```<func>``` with one
 function argument: ```0xdeadbeef```:
 ```
 8048627:	68 ef be ad de       	push   $0xdeadbeef
 804862c:	e8 4c ff ff ff       	call   804857d <func>
 ```
 
-The disassembly of <func> tells us, that the function argument (in this particular case it's 0xdeadbeef) is then compared with the hard coded value 0xcafebabe:
+The disassembly of ```<func>``` tells us, that the function argument (in this particular case it's 0xdeadbeef) is then compared with the hard coded value 0xcafebabe:
 ```
 ...
 80485a0:	3d be ba fe ca       	cmp    $0xcafebabe,%eax
