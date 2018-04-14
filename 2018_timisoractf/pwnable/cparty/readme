@@ -1,0 +1,53 @@
+
+cparty (70pts)
+Tonight is the best school party, are you coming?
+
+remote: 89.38.210.128 31338
+
+Author: 0xcpu
+
+c_party.zip 591386bdf2e793389eeb3f973c38e2a7
+
+
+
+
+
+
+d0n9:18 PM
+hab zu kompliziert gedacht. ansich waren alle meine bisherigen ueberlegungen korrekt. bis auf den teil mit der return adresse. die durfte ich gar nicht ueberschreiben, denn dann passen wie gesagt die EBP nimmer. muss aber auch gar nicht ueberschrieben werden. denn wie gesagt fragt der kot ja nach dem return der unterfunktion
+
+sub.home_party_orgs_password.txt_800
+
+, ob EAX == 0xc0defefe ist. oder mit anderen worten, ob der return VALUE von der unterfunktion == 0xc0defefe ist. und diesen return value kann ich beeinflussen...denn der epilog der unterfunktion macht immer sowas in der art (zumindest wenn die funktion return values an den aufrufer liefert):
+
+|           0x080489b2      8b45ec         mov eax, dword [local_14h]
+|           0x080489b5      83c47c         add esp, 0x7c               ; '|'
+|           0x080489b8      5e             pop esi
+|           0x080489b9      5f             pop edi
+|           0x080489ba      5b             pop ebx
+|           0x080489bb      5d             pop ebp
+\           0x080489bc      c3             ret
+
+und eben die
+
+[local_14h]
+
+liegt ja auf dem stack der unterfunktion, in der ich den stack ueberlaufen lasse. somit muss ich den stack nur mit der
+
+0xc0defefe
+
+wiecderholt voll schmieren und damit die mir gar nicht bekannte stelle
+
+[local_14h]
+
+zwangslaeufig ebenfalls mit
+
+0xc0defefe```ueberschreiben.  somit gibt die unterfunktion ein ```0xc0defefe```zurueck und wird dann nach dem return korrekt erkannt im ```|           0x08048add      8945ec         mov dword [local_14h], eax
+|           0x08048ae0      817decfefede.  cmp dword [local_14h], 0xc0defefe ; [0xc0defefe:4]=-1
+|       ,=< 0x08048ae7      0f8522000000   jne 0x8048b0f
+
+und gibt mir die flag :smile:
+geile aufgabe! viel gelernt. mit radare und binary ninja intimer geworden und "try harder" bewiesen :smile:     so, nun seid ihr dran. ich hab knoten im hirn und geh mir erst mal einen von der palme wedeln auf diese erfolgsfreude :joy::middle_finger::muscle:
+
+
+Ticket id: timctf{0112-3581-3213-4558-9144}
