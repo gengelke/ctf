@@ -1,0 +1,23 @@
+ Hey buddy, today at our history lesson a guy from some sort of consortium came
+to speak about some standard... it was soooo boring, that at some time I fell asleep,
+but I used my audio recorder program to take some notes about his speech.
+Unfortunately there's a sentence missing (a bug?). Can you help?
+
+Author: 0xcpu
+
+history bd1c3486af35e5c606e430788b92fc4b
+
+
+user@84cb2ef9ccb9 /data/reverse/history $ strings -eL history
+==========================================
+Ground work began in late 1987 with initial discussions
+between three software engineers -- Joe Becker of Xerox Corporation
+Lee Collins who was then with Xerox, and Mark Davis, then of Apple Corporation.
+Peter Fenwick visited Xerox PARC, joined by Nakajima from Toronto, and
+Alan Tucker and Karen-Smith Yoshimura of the Research Libraries Group, Inc.
+The discussion led to the architecture of what later becomes known as
+begin at 0 and add the next character.
+First prototypes begin at A
+timctf{unic0d3_1s_mr_w0rldw1d3}
+In the fall of 1988, Collins began building a database
+of characters.
