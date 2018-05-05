@@ -1,1 +1,1 @@
-# My write-ups for CTFs and wargames I participated
+# My write-ups for CTFs and Wargames I solved
