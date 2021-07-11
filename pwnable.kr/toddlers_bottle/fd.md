@@ -97,3 +97,10 @@ mommy! I think I know what a file descriptor is!!
 ```
 ...and we just have solved our first level :-)
 The flag which we looked for is ```mommy! I think I know what a file descriptor is!!``` and it can now be registered in order to continue with the next level.
+
+Alternative:
+```
+fd@pwnable:~$ echo "LETMEWIN" | ./fd 4660
+good job :)
+mommy! I think I know what a file descriptor is!!
+```
