@@ -77,7 +77,7 @@ Since there is no ```open()``` in the given source code, the value of ```fd``` c
 ```
 0	  Standard input	  STDIN_FILENO	  stdin
 1	  Standard output	  STDOUT_FILENO	  stdout
-2	  Standard error    STDERR_FILENO	  stderr
+2	  Standard error          STDERR_FILENO	  stderr
 ```
 ```stdout``` and ```stderr``` are used for the output of a program. Therefore it's more likely that we would have to use the file descriptor 0 (```stdin```) instead in order to read in the magic word ```LETMEWIN\n```.
 So in order to set variable ```fd``` to value 0, we have to convert the hexadecimal value ```0x1234``` to decimal...
