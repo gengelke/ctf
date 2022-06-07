@@ -54,7 +54,7 @@ Wrong
 Wrong
 7122
 Wrong
-7123
+7123   <-----{THAT'S THE CORRECT 4 DIGIT CODE}
 $ cat /etc/leviathan_pass/leviathan7
 ahy7MaeBo9
 ```
