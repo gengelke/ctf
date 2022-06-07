@@ -28,3 +28,33 @@ Let's see what binary file **leviathan6** does when we execute it:
 leviathan6@leviathan:~$ ./leviathan6
 usage: ./leviathan6 <4 digit code>
 ```
+
+The binary expects one argument containing a 4 digit code. If we enter the wrong code, the binary just says "Wrong":
+```
+leviathan6@leviathan:~$ ./leviathan6 1234
+Wrong
+```
+
+We simply brute force the 4 digit code ;-)
+
+```
+leviathan6@leviathan:~$ for i in {1000..9999}; do echo $i; ./leviathan6 $i; sleep 0.01; done
+1000
+Wrong
+1001
+Wrong
+1002
+Wrong
+1003
+Wrong
+[...]
+7120
+Wrong
+7121
+Wrong
+7122
+Wrong
+7123
+$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+```
