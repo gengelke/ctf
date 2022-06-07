@@ -38,14 +38,14 @@ Wrong
 We simply brute force the 4 digit code ;-)
 
 ```
-leviathan6@leviathan:~$ for i in {1000..9999}; do echo $i; ./leviathan6 $i; sleep 0.01; done
-1000
+leviathan6@leviathan:~$ for i in {0000..9999}; do echo $i; ./leviathan6 $i; sleep 0.01; done
+0000
 Wrong
-1001
+0001
 Wrong
-1002
+0002
 Wrong
-1003
+0003
 Wrong
 [...]
 7120
