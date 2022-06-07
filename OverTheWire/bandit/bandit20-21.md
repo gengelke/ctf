@@ -54,7 +54,16 @@ qqq
 But obviously none of these were able to let me enter the current level's password. So I didn't know how to proceed.
 After I slept over it and read the text(s) once again, I realized that the solution is described pretty detailed.
 
-More precisely the text references to a document which [describes the infrastructure](http://overthewire.org/help/sshinfra.html)) of OverTheWire challenges. Here we can read that for each SSH connection a new Docker container gets started. Therefore everything gets lost when one disconnects or connects with another SSH session. Furthermore the text tells us to consider to use the following commands: ```ssh, nc, cat, bash, screen, tmux```. So with these information in mind, reading the text "Level Goal" once again brought me to the idea to use netcat (nc) in order to set up a listening server which simply provides the current level's password whenever another process connects to it. This would make sence because ```suconnect``` is not able to read the required current level's password from stdin. Then I could use ```suconnect``` in order to connect to my small server's port and see what happens. 
+More precisely the text references to a document which [describes the infrastructure](http://overthewire.org/help/sshinfra.html)) of OverTheWire challenges. Here we can read that for each SSH connection a new Docker container gets started. Therefore everything gets lost when one disconnects or connects with another SSH session. Furthermore the text tells us to consider to use the following commands: ```ssh, nc, cat, bash, screen, tmux```. 
+Furthermore I simply executed the binary without any arguments and got this:
+
+```
+bandit20@bandit:~$ ./suconnect
+Usage: ./suconnect <portnumber>
+This program will connect to the given port on localhost using TCP. If it receives the correct password from the other side, the next password is transmitted back.
+```
+
+So with these information in mind, reading the text "Level Goal" once again brought me to the idea to use netcat (nc) in order to set up a listening server which simply provides the current level's password whenever another process connects to it. This would make sence because ```suconnect``` is not able to read the required current level's password from stdin. Then I could use ```suconnect``` in order to connect to my small server's port and see what happens. 
 
 But wait... Since we only have one SSH connection open due to the Docker stuff limitations described before, we first have to find a way to execute several commands in parallel. Since I was already familiar with tmux/screen I picked it to open two terminal windows within the same SSH connection:
 
@@ -81,4 +90,4 @@ gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 bandit20@bandit:~$
 ```
 
-Phew! This was hard ;-)
+Phew! This was tricky ;-)
